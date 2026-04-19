@@ -19,7 +19,7 @@ const ServicesPage = ({ setActivePage }: { setActivePage: (page: string) => void
             {SERVICES_DATA.map((s, i) => (
               <div key={i}>
                 <StaggerItem>
-                  <div className="card-premium group h-full flex flex-col">
+                  <div className="card-premium group h-full w-full min-h-[32rem] flex flex-col">
                     <div className="w-20 h-20 bg-starfield rounded-2xl flex items-center justify-center text-cyan mb-8 group-hover:bg-electric group-hover:text-white transition-all duration-700 shadow-inner">
                       {s.icon}
                     </div>

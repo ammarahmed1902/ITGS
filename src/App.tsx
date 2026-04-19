@@ -11,16 +11,23 @@ import BookingPage from './pages/BookingPage';
 import AdminPage from './pages/AdminPage';
 import ReviewsPage from './pages/ReviewsPage';
 import TeamPage from './pages/TeamPage';
+import JobDetailPage from './pages/JobDetailPage';
+import JobApplicationPage from './pages/JobApplicationPage';
 import { useBlog } from './presentation/hooks/useBlog';
+import { useJobs } from './presentation/hooks/useJobs';
 
 export default function App() {
   const [activePage, setActivePage] = useState('Home');
   const { posts, savePost, deletePost } = useBlog();
-
-  const handleSetPosts = (newPosts: any) => {
-    // This is a bridge for the existing AdminPage which expects setPosts
-    // In a full clean architecture, AdminPage would use useBlog directly
-  };
+  const {
+    jobs,
+    applications,
+    saveJob,
+    deleteJob,
+    saveApplication,
+    updateApplicationStatus,
+    deleteApplication,
+  } = useJobs();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -43,13 +50,26 @@ export default function App() {
         {activePage === 'Reviews' && <ReviewsPage />}
         {activePage === 'Team' && <TeamPage />}
         {activePage === 'Blog' && <BlogPage posts={posts} />}
-        {activePage === 'Careers' && <CareersPage />}
+        {activePage === 'Careers' && <CareersPage jobs={jobs} setActivePage={setActivePage} />}
+        {activePage.startsWith('Job:') && (
+          <JobDetailPage jobId={activePage.split(':')[1]} jobs={jobs} setActivePage={setActivePage} />
+        )}
+        {activePage.startsWith('Apply:') && (
+          <JobApplicationPage jobId={activePage.split(':')[1]} jobs={jobs} setActivePage={setActivePage} onSubmit={saveApplication} />
+        )}
         {activePage === 'Booking' && <BookingPage />}
         {activePage === 'Admin' && (
           <AdminPage 
             posts={posts} 
+            jobs={jobs}
+            applications={applications}
             onSave={savePost} 
-            onDelete={deletePost} 
+            onDelete={deletePost}
+            onSaveJob={saveJob}
+            onDeleteJob={deleteJob}
+            onSaveApplication={saveApplication}
+            onUpdateApplicationStatus={updateApplicationStatus}
+            onDeleteApplication={deleteApplication}
           />
         )}
       </main>
