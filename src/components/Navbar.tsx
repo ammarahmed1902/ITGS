@@ -9,10 +9,10 @@ const Navbar = ({ activePage, setActivePage }: { activePage: string, setActivePa
   const navLinks = ['Home', 'About', 'Services', 'Reviews', 'Team', 'Blog', 'Careers'];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 glass-nav py-8">
+    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 glass-nav py-0.5">
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <div 
-          className="cursor-pointer" 
+        <div
+          className="cursor-pointer"
           onClick={() => setActivePage('Home')}
         >
           <Logo />
@@ -30,7 +30,7 @@ const Navbar = ({ activePage, setActivePage }: { activePage: string, setActivePa
               <span className={`absolute -bottom-2 left-0 w-0 h-0.5 bg-cyan transition-all duration-300 group-hover:w-full ${activePage === link ? 'w-full' : ''}`} />
             </button>
           ))}
-          <button 
+          <button
             onClick={() => setActivePage('Booking')}
             className="bg-electric hover:bg-cyan text-white px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 shadow-lg shadow-electric/20 flex items-center justify-center"
           >
@@ -46,7 +46,7 @@ const Navbar = ({ activePage, setActivePage }: { activePage: string, setActivePa
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           className="md:hidden bg-midnight border-b border-white/5 p-8 flex flex-col gap-6"
@@ -63,7 +63,7 @@ const Navbar = ({ activePage, setActivePage }: { activePage: string, setActivePa
               {link}
             </button>
           ))}
-          <button 
+          <button
             onClick={() => {
               setActivePage('Booking');
               setIsMobileMenuOpen(false);
