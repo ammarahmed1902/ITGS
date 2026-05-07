@@ -5,11 +5,11 @@ import TechVisual from '../TechVisual';
 
 const Hero = ({ setActivePage }: { setActivePage: (page: string) => void }) => {
   return (
-    <section className="relative min-h-screen bg-midnight flex items-center pt-24 overflow-hidden">
+    <section className="relative min-h-screen bg-midnight flex items-center pt-03 overflow-hidden">
       {/* Psychology: Depth & Dynamic Motion (Confidence) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             scale: [1, 1.1, 1],
             opacity: [0.2, 0.3, 0.2],
             x: [0, 40, 0],
@@ -18,8 +18,8 @@ const Hero = ({ setActivePage }: { setActivePage: (page: string) => void }) => {
           transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-1/4 -left-20 w-[600px] h-[600px] bg-electric/15 rounded-full blur-[140px]"
         />
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             scale: [1, 1.2, 1],
             opacity: [0.15, 0.25, 0.15],
             x: [0, -40, 0],
@@ -38,18 +38,19 @@ const Hero = ({ setActivePage }: { setActivePage: (page: string) => void }) => {
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           className="relative z-20"
         >
-          <h1 className="text-6xl md:text-8xl font-extrabold text-white mb-10 text-balance tracking-tight">
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-extrabold text-white mb-10 text-balance tracking-tight">
             Scale with <span className="text-electric">Absolute</span> Authority.
           </h1>
-          <p className="text-xl md:text-2xl text-white/50 mb-12 max-w-xl leading-relaxed font-light">
-            ITGS engineers psychology-driven technology solutions for the world's most ambitious enterprise brands.
+          <p className="text-lg sm:text-xl md:text-2xl text-white/50 mb-12 max-w-xl leading-relaxed font-light">
+
+            You've built something real. Now it's time the right people knew about it. ITGS helps US businesses grow online not with promises, but with the kind of work that actually shows up in your revenue.
           </p>
           <div className="flex flex-wrap gap-6">
             <button onClick={() => setActivePage('Booking')} className="btn-primary group">
-              Get Started Now
-              <ArrowRight size={22} className="group-hover:translate-x-1.5 transition-transform duration-300" />
+              Start Growing Today
+              <ArrowRight size={22} className="group-hover:translate-x-1.5 transition-transform duration-30" />
             </button>
-            <button onClick={() => setActivePage('Booking')} className="btn-outline">Speak with an Expert</button>
+            <button onClick={() => setActivePage('Booking')} className="btn-outline">Talk to a Real Human</button>
           </div>
         </motion.div>
 

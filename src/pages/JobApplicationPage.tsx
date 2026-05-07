@@ -59,6 +59,7 @@ const JobApplicationPage = ({
     coverLetterFileName: '',
     coverLetterFileType: '',
     coverLetterDataUrl: '',
+    honeypot: '', // Honeypot field for spam protection
   });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
@@ -129,8 +130,22 @@ const JobApplicationPage = ({
     setError('');
     setSuccess('');
 
+    // Honeypot check
+    if (form.honeypot) {
+      console.warn('Spam detected via honeypot.');
+      setSuccess('Application submitted successfully.'); // Fake success for bots
+      return;
+    }
+
     if (!form.firstName || !form.lastName || !form.email || !form.phone || !form.currentLocation || !form.yearsExperience || !form.currentSalary || !form.expectedSalary || !form.reasonForLeaving || !form.availableJoinDate) {
       setError('Please complete all required fields before submitting.');
+      return;
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) {
+      setError('Please enter a valid email address.');
       return;
     }
 
@@ -196,6 +211,17 @@ const JobApplicationPage = ({
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-8">
+              {/* Honeypot field - hidden from users but visible to bots */}
+              <div className="hidden" aria-hidden="true">
+                <input 
+                  type="text" 
+                  name="honeypot" 
+                  tabIndex={-1} 
+                  autoComplete="off" 
+                  value={form.honeypot} 
+                  onChange={(e) => setForm({ ...form, honeypot: e.target.value })} 
+                />
+              </div>
               <div className="grid md:grid-cols-2 gap-6">
                 {[
                   { label: 'First Name', name: 'firstName', required: true },

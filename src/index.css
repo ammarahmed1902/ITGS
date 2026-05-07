@@ -10,7 +10,7 @@
   --color-electric: #2196F3;
   --color-cyan: #00C2FF;
   --color-starfield: #F5F9FF;
-  --color-steel: #6B7A8D;
+  --color-steel: #475569; /* Darkened for better WCAG contrast */
 }
 
 @layer base {
@@ -19,6 +19,21 @@
   }
   h1, h2, h3, h4 {
     @apply font-display text-midnight tracking-tight leading-[1.1];
+  }
+  
+  /* Global Focus States for Keyboard Navigation */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-electric ring-offset-2 ring-offset-starfield;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 

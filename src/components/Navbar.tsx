@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
-import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import Logo from './Logo';
 
 const Navbar = ({ activePage, setActivePage }: { activePage: string, setActivePage: (page: string) => void }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navLinks = ['Home', 'About', 'Services', 'Reviews', 'Team', 'Blog', 'Careers'];
+  const navLinks = ['Home', 'About', 'Services', 'Reviews', 'Team', 'Blog', 'Careers', 'Contact'];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 glass-nav py-0.5">
@@ -39,41 +39,73 @@ const Navbar = ({ activePage, setActivePage }: { activePage: string, setActivePa
         </div>
 
         {/* Mobile Toggle */}
-        <button className="md:hidden text-white p-2" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button 
+          className="md:hidden text-white p-2 min-w-[44px] min-h-[44px] flex items-center justify-center" 
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-expanded={isMobileMenuOpen}
+          aria-label="Toggle navigation menu"
+        >
           {isMobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
+      <AnimatePresence>
       {isMobileMenuOpen && (
         <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
-          className="md:hidden bg-midnight border-b border-white/5 p-8 flex flex-col gap-6"
+          initial={{ opacity: 0, x: '100%' }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: '100%' }}
+          transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+          className="fixed inset-0 z-[60] bg-midnight flex flex-col p-8 md:hidden overflow-y-auto"
         >
-          {navLinks.map((link) => (
+          <div className="flex justify-between items-center mb-12">
+            <Logo />
+            <button 
+              className="text-white p-2 min-w-[44px] min-h-[44px] flex items-center justify-center" 
+              onClick={() => setIsMobileMenuOpen(false)}
+              aria-label="Close navigation menu"
+            >
+              <X size={32} />
+            </button>
+          </div>
+          
+          <div className="flex flex-col gap-8">
+            {navLinks.map((link, index) => (
+              <motion.button
+                key={link}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.05 }}
+                onClick={() => {
+                  setActivePage(link);
+                  setIsMobileMenuOpen(false);
+                }}
+                className={`text-left text-4xl font-black tracking-tighter transition-colors ${activePage === link ? 'text-cyan' : 'text-white/60 hover:text-white'}`}
+              >
+                {link}
+              </motion.button>
+            ))}
+          </div>
+
+          <div className="mt-auto pt-12 border-t border-white/5">
             <button
-              key={link}
               onClick={() => {
-                setActivePage(link);
+                setActivePage('Booking');
                 setIsMobileMenuOpen(false);
               }}
-              className={`text-left text-2xl font-black tracking-tighter ${activePage === link ? 'text-cyan' : 'text-white/60'}`}
+              className="w-full bg-electric hover:bg-cyan text-white py-5 rounded-2xl font-bold uppercase tracking-widest text-sm transition-all shadow-lg shadow-electric/20 flex items-center justify-center gap-3"
             >
-              {link}
+              Schedule Meeting
+              <ArrowRight size={18} />
             </button>
-          ))}
-          <button
-            onClick={() => {
-              setActivePage('Booking');
-              setIsMobileMenuOpen(false);
-            }}
-            className="bg-electric text-white py-4 rounded-xl font-bold uppercase tracking-widest text-sm mt-4 flex items-center justify-center"
-          >
-            Schedule Meeting
-          </button>
+            <div className="mt-8 text-white/20 text-xs uppercase tracking-widest text-center">
+              © 2026 ITGS Global
+            </div>
+          </div>
         </motion.div>
       )}
+      </AnimatePresence>
     </nav>
   );
 };
