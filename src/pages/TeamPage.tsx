@@ -10,14 +10,14 @@ const TeamPage = () => (
       </div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {[
-          { name: "Dr. Aris Thorne", role: "CEO & Founder", img: "https://picsum.photos/seed/person1/400/500" },
-          { name: "James Wilson", role: "Chief Architect", img: "https://picsum.photos/seed/person2/400/500" },
-          { name: "Lila Vance", role: "Head of Psychology", img: "https://picsum.photos/seed/person3/400/500" },
-          { name: "Kenji Sato", role: "VP of Security", img: "https://picsum.photos/seed/person4/400/500" },
+          { name: "Muhammad Daniyal Altaf", role: "CEO & Co-founder", img: "/ceo-daniyal.png" },
+          { name: "Ammar Ahmed", role: "COO – Chief Operating Officer", img: "/coo-ammar.png" },
+          { name: "Muhammad Rayyan Iftikhar", role: "CFO – Chief Financial Officer", img: "/cfo-rayyan.png" },
+          { name: "Muhammad Eesa Naveed", role: "CTO – Chief Technology Officer", img: "/cto-eesa.png" },
         ].map((m, i) => (
           <motion.div key={i} whileHover={{ scale: 1.02 }} className="group relative overflow-hidden rounded-3xl">
-            <img src={m.img} alt={m.name} className="w-full aspect-[4/5] object-cover group-hover:scale-110 transition-transform duration-500" referrerPolicy="no-referrer" />
-            <div className="absolute inset-0 bg-gradient-to-t from-midnight to-transparent opacity-80" />
+            <img src={m.img} alt={m.name} className="w-full aspect-[3.7/5] object-cover object-top group-hover:scale-110 transition-transform duration-500" referrerPolicy="no-referrer" />
+            <div className="absolute inset-0 bg-gradient-to-t from-midnight to-transparent opacity-50" />
             <div className="absolute bottom-0 left-0 p-6">
               <div className="text-white font-bold text-xl">{m.name}</div>
               <div className="text-cyan text-sm">{m.role}</div>

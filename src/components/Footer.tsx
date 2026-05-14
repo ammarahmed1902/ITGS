@@ -34,7 +34,7 @@ const Footer = ({ setActivePage }: { setActivePage: (page: string) => void }) =>
             <ul className="space-y-4 text-white/40 text-sm">
               {SERVICES_DATA.slice(0, 4).map((s, i) => (
                 <li key={i}>
-                  <button 
+                  <button
                     onClick={() => setActivePage(`Service:${s.id}`)}
                     className="hover:text-cyan transition-colors text-left"
                   >
@@ -48,7 +48,7 @@ const Footer = ({ setActivePage }: { setActivePage: (page: string) => void }) =>
             <h4 className="text-white font-bold mb-6">Contact</h4>
             <ul className="space-y-4 text-white/40 text-sm">
               <li>contact@itgs.global</li>
-              <li>+1 (800) ITGS-TECH</li>
+              <li>+92 3023218969</li>
               <li>Silicon Valley, CA</li>
               <li className="flex gap-4 pt-4">
                 <a href="#" className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center hover:bg-cyan transition-colors" aria-label="Website" target="_blank" rel="noopener noreferrer">
