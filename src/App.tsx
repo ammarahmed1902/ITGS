@@ -20,8 +20,12 @@ import { useBlog } from './presentation/hooks/useBlog';
 import { useJobs } from './presentation/hooks/useJobs';
 
 export default function App() {
-  const [activePage, setActivePage] = useState('Home');
+  const [activePage, setActivePage] = useState(() => localStorage.getItem('itgs_active_page') || 'Home');
   const { posts, savePost, deletePost } = useBlog();
+
+  useEffect(() => {
+    localStorage.setItem('itgs_active_page', activePage);
+  }, [activePage]);
   const {
     jobs,
     applications,

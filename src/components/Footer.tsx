@@ -1,6 +1,7 @@
 import React from 'react';
 import { Globe, Users } from 'lucide-react';
 import { SERVICES_DATA } from '../constants';
+import Logo from './Logo';
 
 const Footer = ({ setActivePage }: { setActivePage: (page: string) => void }) => {
   return (
@@ -8,11 +9,8 @@ const Footer = ({ setActivePage }: { setActivePage: (page: string) => void }) =>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div>
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 bg-electric rounded flex items-center justify-center">
-                <span className="text-white font-bold">I</span>
-              </div>
-              <span className="text-white font-display text-xl font-bold">ITGS</span>
+            <div className="mb-6">
+              <Logo />
             </div>
             <p className="text-white/40 leading-relaxed">
               The global authority in psychology-driven technology solutions for the modern enterprise.
