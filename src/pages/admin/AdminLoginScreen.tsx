@@ -3,17 +3,11 @@ import { motion } from 'motion/react';
 import { Lock, Eye, EyeOff, ArrowRight, CheckCircle } from 'lucide-react';
 import { UserRole } from '../../domain/entities/AdminUser';
 import {
-  ROLE_LABELS,
-  ROLE_COLORS,
-  ROLE_DESCRIPTIONS,
-} from '../../config/rolePermissions';
-import {
   getAdminUsers,
   resetAdminUserPassword,
 } from '../../infrastructure/repositories/AdminUserRepository';
 import { generateTempPassword } from '../../utils/crypto';
 
-const ALL_ROLES: UserRole[] = ['super_admin', 'blog_editor', 'jobs_manager'];
 
 interface Props {
   onLogin: (identifier: string, password: string) => Promise<string | null>;
@@ -78,7 +72,7 @@ export default function AdminLoginScreen({ onLogin }: Props) {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-10 items-start">
+        <div className="max-w-md mx-auto">
           {/* ── Form card ──────────────────────────────────────────────── */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -250,30 +244,6 @@ export default function AdminLoginScreen({ onLogin }: Props) {
             )}
           </motion.div>
 
-          {/* ── Role info cards ─────────────────────────────────────────── */}
-          <div className="space-y-4">
-            <p className="text-xs font-bold uppercase tracking-widest text-steel mb-2">
-              Available Roles
-            </p>
-            {ALL_ROLES.map((role, i) => (
-              <motion.div
-                key={role}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-white rounded-2xl border border-midnight/5 p-5 flex items-start gap-4 hover:border-electric/30 transition-all"
-              >
-                <span
-                  className={`mt-0.5 shrink-0 px-2 py-1 rounded-lg text-[10px] font-bold uppercase tracking-widest ${ROLE_COLORS[role].bg} ${ROLE_COLORS[role].text}`}
-                >
-                  {ROLE_LABELS[role]}
-                </span>
-                <p className="text-steel text-sm leading-relaxed">
-                  {ROLE_DESCRIPTIONS[role]}
-                </p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </div>
     </div>

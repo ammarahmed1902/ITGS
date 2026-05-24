@@ -12,8 +12,8 @@ const TeamPage = () => (
         {[
           { name: "Muhammad Daniyal Altaf", role: "CEO & Co-founder", img: "/ceo-daniyal.png" },
           { name: "Ammar Ahmed", role: "COO – Chief Operating Officer", img: "/coo-ammar.png" },
-          { name: "Muhammad Rayyan Iftikhar", role: "CFO – Chief Financial Officer", img: "/cfo-rayyan.png" },
-          { name: "Muhammad Eesa Naveed", role: "CTO – Chief Technology Officer", img: "/cto-eesa.png" },
+          { name: "Ali Hassan", role: "Mobile App Developer", img: "/Ali Hassan.png" },
+          { name: "Usman Arif", role: "Mobile App Developer", img: "/usmanarif.png" },
         ].map((m, i) => (
           <motion.div key={i} whileHover={{ scale: 1.02 }} className="group relative overflow-hidden rounded-3xl">
             <img src={m.img} alt={m.name} className="w-full aspect-[3.7/5] object-cover object-top group-hover:scale-110 transition-transform duration-500" referrerPolicy="no-referrer" />
