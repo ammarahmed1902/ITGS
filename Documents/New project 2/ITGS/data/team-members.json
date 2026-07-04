@@ -1,0 +1,50 @@
+[
+  {
+    "id": "tm-daniyal",
+    "fullName": "Muhammad Daniyal Altaf",
+    "role": "CEO & Co-founder",
+    "email": "daniyal@itgs.example",
+    "department": "Leadership",
+    "bio": "Sets the company vision and leads ITGS toward delivering world-class technology solutions.",
+    "photo": "/ceo-daniyal.png",
+    "status": "Active",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "order": 0
+  },
+  {
+    "id": "tm-ammar",
+    "fullName": "Ammar Ahmed",
+    "role": "COO – Chief Operating Officer",
+    "email": "ammar@itgs.example",
+    "department": "Operations",
+    "bio": "Drives operational excellence and ensures every client engagement runs smoothly.",
+    "photo": "/coo-ammar.png",
+    "status": "Active",
+    "createdAt": "2024-01-02T00:00:00.000Z",
+    "order": 1
+  },
+  {
+    "id": "tm-ali",
+    "fullName": "Ali Hassan",
+    "role": "Mobile App Developer",
+    "email": "ali@itgs.example",
+    "department": "Engineering",
+    "bio": "Builds performant, delightful mobile experiences across iOS and Android.",
+    "photo": "/ali-hassan.png",
+    "status": "Active",
+    "createdAt": "2024-01-03T00:00:00.000Z",
+    "order": 2
+  },
+  {
+    "id": "tm-usman",
+    "fullName": "Usman Arif",
+    "role": "Mobile App Developer",
+    "email": "usman@itgs.example",
+    "department": "Engineering",
+    "bio": "Crafts robust mobile architectures and ships features users love.",
+    "photo": "/usmanarif.png",
+    "status": "Active",
+    "createdAt": "2024-01-04T00:00:00.000Z",
+    "order": 3
+  }
+]
