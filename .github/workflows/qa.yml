@@ -1,0 +1,26 @@
+name: Release QA
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run release
+      - run: npx playwright install --with-deps chromium firefox webkit
+      - run: npm run build
+        env:
+          SITE_ENV: preview
+          QA_CONTENT_FILE: tests/fixtures/articles.json
+          ANALYTICS_ENDPOINT: https://analytics.example.test/events
+          ANALYTICS_PREVIEW: 'true'
+      - run: npm run test:e2e
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-evidence
+          path: output/playwright

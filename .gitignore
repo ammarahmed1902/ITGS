@@ -6,3 +6,9 @@ coverage/
 *.log
 .env*
 !.env.example
+
+.build/
+playwright-report/
+test-results/
+.playwright-cli/
+output/

@@ -5,12 +5,19 @@ import { blogService } from '../../di';
 export const useBlog = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const fetchPosts = useCallback(async () => {
     setLoading(true);
-    const data = await blogService.getAllPosts();
-    setPosts(data);
-    setLoading(false);
+    try {
+      setError(null);
+      const data = await blogService.getAllPosts();
+      setPosts(data);
+    } catch {
+      setError('Insights are temporarily unavailable. Please try again shortly.');
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
   useEffect(() => {
@@ -27,5 +34,5 @@ export const useBlog = () => {
     await fetchPosts();
   };
 
-  return { posts, loading, savePost, deletePost };
+  return { posts, loading, error, savePost, deletePost, refresh: fetchPosts };
 };

@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1320" viewBox="0 0 1440 1320">
+<title>ITGS Clear expertise — proposed desktop and mobile design</title>
+<desc>Static design proposal. White navigation, navy hero, meaningful capability index and grouped service directory. ITGS text marks logo placement only.</desc>
+<rect width="1440" height="1320" fill="#E5EAED"/>
+<g font-family="Inter, Arial, sans-serif" fill="#102538">
+<text x="40" y="45" font-size="14" letter-spacing="2">ITGS / DESIGN DIRECTION 01</text>
+<text x="40" y="92" font-size="36" font-weight="600">Clear expertise.</text>
+<text x="1400" y="46" text-anchor="end" font-size="13">DESIGN REVIEW · NO IMPLEMENTATION</text>
+<text x="1400" y="82" text-anchor="end" font-size="14" fill="#4D5F6E">A calmer, more useful expression of the ITGS brand.</text>
+<!-- Desktop composition at reduced scale -->
+<text x="40" y="133" font-size="12" letter-spacing="1.3" fill="#4D5F6E">DESKTOP / HOMEPAGE COMPOSITION</text>
+<rect x="40" y="151" width="972" height="1045" fill="#F7F8F5"/>
+<rect x="40" y="151" width="972" height="66" fill="white"/>
+<text x="80" y="191" font-size="26" font-weight="600" letter-spacing="-1">ITGS<tspan fill="#155EEF">.</tspan></text>
+<text x="476" y="188" font-size="12">Services</text><text x="565" y="188" font-size="12">Company⌄</text><text x="674" y="188" font-size="12">Insights</text>
+<rect x="777" y="167" width="194" height="36" rx="5" fill="#155EEF"/>
+<text x="794" y="190" font-size="12" fill="white" font-weight="600">Book a strategy call</text><text x="946" y="190" font-size="16" fill="white">↗</text>
+<rect x="40" y="217" width="972" height="423" fill="#102538"/>
+<text x="80" y="272" font-size="10" fill="#8FC7FF" letter-spacing="1.5">DIGITAL SERVICES FOR GROWING BUSINESSES</text>
+<text x="80" y="335" font-size="49" font-weight="600" letter-spacing="-1.8" fill="white">Build your next</text>
+<text x="80" y="390" font-size="49" font-weight="600" letter-spacing="-1.8" fill="white">stage of growth.</text>
+<text x="80" y="439" font-size="15" fill="#D3DEE6">Websites, apps, design and digital marketing—</text>
+<text x="80" y="464" font-size="15" fill="#D3DEE6">supported by the operational expertise to keep</text>
+<text x="80" y="489" font-size="15" fill="#D3DEE6">your business moving.</text>
+<rect x="80" y="528" width="200" height="44" rx="5" fill="#155EEF"/>
+<text x="98" y="555" font-size="13" fill="white" font-weight="600">Book a strategy call</text><text x="253" y="555" font-size="17" fill="white">↗</text>
+<text x="308" y="555" font-size="13" fill="white">Explore services →</text>
+<path d="M621 277 V570" stroke="#466071"/>
+<text x="644" y="284" font-size="10" fill="#A4B6C3" letter-spacing="1.5">CONNECTED EXPERTISE</text>
+<circle cx="621" cy="327" r="4" fill="#8FC7FF"/>
+<text x="646" y="337" font-size="26" fill="white" font-weight="500">Build</text><text x="940" y="336" font-size="22" fill="#8FC7FF">↗</text>
+<text x="646" y="364" font-size="13" fill="#D3DEE6">Web · Mobile · Design</text>
+<path d="M646 388 H972" stroke="#385063"/>
+<circle cx="621" cy="424" r="4" fill="#8FC7FF"/>
+<text x="646" y="434" font-size="26" fill="white" font-weight="500">Reach</text><text x="940" y="433" font-size="22" fill="#8FC7FF">↗</text>
+<text x="646" y="461" font-size="13" fill="#D3DEE6">Marketing · SEO · Lead generation</text>
+<path d="M646 485 H972" stroke="#385063"/>
+<circle cx="621" cy="521" r="4" fill="#8FC7FF"/>
+<text x="646" y="531" font-size="26" fill="white" font-weight="500">Operate</text><text x="940" y="530" font-size="22" fill="#8FC7FF">↗</text>
+<text x="646" y="558" font-size="13" fill="#D3DEE6">E-commerce · Virtual assistance</text>
+<text x="80" y="689" font-size="10" fill="#155EEF" letter-spacing="1.5">WHAT WE DO</text>
+<text x="80" y="729" font-size="30" font-weight="600" letter-spacing="-.7">The right expertise</text>
+<text x="80" y="765" font-size="30" font-weight="600" letter-spacing="-.7">for your next move.</text>
+<text x="646" y="727" font-size="13" fill="#4D5F6E">Explore the services that fit your priorities.</text>
+<text x="646" y="751" font-size="13" fill="#4D5F6E">Start with one need. See how we can help.</text>
+<path d="M80 797 H972 M80 895 H972 M80 993 H972 M80 1091 H972" stroke="#D7DFE4"/>
+<text x="80" y="833" font-size="12" fill="#63717D">01</text><text x="120" y="835" font-size="23" font-weight="500">Build</text>
+<text x="120" y="862" font-size="12" fill="#4D5F6E">Create your digital presence.</text>
+<text x="442" y="833" font-size="13">Web development ↗</text><text x="697" y="833" font-size="13">Mobile app development ↗</text>
+<text x="442" y="865" font-size="13">UI/UX design ↗</text><text x="697" y="865" font-size="13">Graphic design ↗</text>
+<text x="80" y="931" font-size="12" fill="#63717D">02</text><text x="120" y="933" font-size="23" font-weight="500">Reach</text>
+<text x="120" y="960" font-size="12" fill="#4D5F6E">Connect with your next customers.</text>
+<text x="442" y="931" font-size="13">Digital marketing ↗</text><text x="697" y="931" font-size="13">Search engine optimization ↗</text>
+<text x="442" y="963" font-size="13">Lead generation ↗</text>
+<text x="80" y="1029" font-size="12" fill="#63717D">03</text><text x="120" y="1031" font-size="23" font-weight="500">Operate</text>
+<text x="120" y="1058" font-size="12" fill="#4D5F6E">Support the work behind your business.</text>
+<text x="442" y="1029" font-size="13">E-commerce solutions ↗</text><text x="697" y="1029" font-size="13">Virtual assistance ↗</text>
+<text x="80" y="1146" font-size="20" font-weight="500">A clear path from brief to delivery.</text>
+<text x="80" y="1174" font-size="12" fill="#4D5F6E">Discover → Define → Deliver → Improve</text>
+<!-- Mobile composition -->
+<text x="1044" y="133" font-size="12" letter-spacing="1.3" fill="#4D5F6E">MOBILE / CONTENT FIRST</text>
+<rect x="1044" y="151" width="356" height="1045" fill="#F7F8F5"/>
+<rect x="1044" y="151" width="356" height="68" fill="white"/>
+<text x="1064" y="192" font-size="26" font-weight="600" letter-spacing="-1">ITGS<tspan fill="#155EEF">.</tspan></text>
+<text x="1323" y="190" font-size="13">Menu</text><path d="M1364 179 H1380 M1364 187 H1380" stroke="#102538" stroke-width="2"/>
+<rect x="1044" y="219" width="356" height="636" fill="#102538"/>
+<text x="1064" y="262" font-size="9" fill="#8FC7FF" letter-spacing="1.1">DIGITAL SERVICES FOR GROWING BUSINESSES</text>
+<text x="1064" y="319" font-size="38" font-weight="600" letter-spacing="-1.2" fill="white">Build your next</text>
+<text x="1064" y="361" font-size="38" font-weight="600" letter-spacing="-1.2" fill="white">stage of growth.</text>
+<text x="1064" y="404" font-size="16" fill="#D3DEE6">Websites, apps, design and digital</text>
+<text x="1064" y="429" font-size="16" fill="#D3DEE6">marketing—supported by the</text>
+<text x="1064" y="454" font-size="16" fill="#D3DEE6">operational expertise to keep your</text>
+<text x="1064" y="479" font-size="16" fill="#D3DEE6">business moving.</text>
+<rect x="1064" y="507" width="316" height="48" rx="6" fill="#155EEF"/>
+<text x="1109" y="537" font-size="14" font-weight="600" fill="white">Book a strategy call</text><text x="1341" y="537" font-size="18" fill="white">↗</text>
+<text x="1157" y="586" font-size="14" fill="white">Explore services →</text>
+<path d="M1064 618 H1380 M1064 690 H1380 M1064 762 H1380" stroke="#385063"/>
+<text x="1064" y="646" font-size="20" font-weight="500" fill="white">Build</text><text x="1362" y="649" font-size="20" fill="#8FC7FF">↗</text>
+<text x="1064" y="670" font-size="12" fill="#D3DEE6">Web · Mobile · Design</text>
+<text x="1064" y="718" font-size="20" font-weight="500" fill="white">Reach</text><text x="1362" y="721" font-size="20" fill="#8FC7FF">↗</text>
+<text x="1064" y="742" font-size="12" fill="#D3DEE6">Marketing · SEO · Lead generation</text>
+<text x="1064" y="790" font-size="20" font-weight="500" fill="white">Operate</text><text x="1362" y="793" font-size="20" fill="#8FC7FF">↗</text>
+<text x="1064" y="814" font-size="12" fill="#D3DEE6">E-commerce · Virtual assistance</text>
+<text x="1064" y="903" font-size="10" fill="#155EEF" letter-spacing="1.4">WHAT WE DO</text>
+<text x="1064" y="945" font-size="28" font-weight="600" letter-spacing="-.6">The right expertise</text>
+<text x="1064" y="979" font-size="28" font-weight="600" letter-spacing="-.6">for your next move.</text>
+<path d="M1064 1010 H1380" stroke="#D7DFE4"/>
+<text x="1064" y="1047" font-size="12" fill="#63717D">01</text><text x="1100" y="1049" font-size="23" font-weight="500">Build</text>
+<text x="1064" y="1092" font-size="14">Web development</text><text x="1362" y="1092" font-size="18">↗</text>
+<path d="M1064 1110 H1380" stroke="#D7DFE4"/>
+<text x="1064" y="1138" font-size="14">Mobile app development</text><text x="1362" y="1138" font-size="18">↗</text>
+<path d="M1064 1156 H1380" stroke="#D7DFE4"/>
+<text x="1064" y="1184" font-size="14">UI/UX design</text><text x="1362" y="1184" font-size="18">↗</text>
+<text x="40" y="1233" font-size="13" fill="#4D5F6E">Continue: delivery approach → verified work, if available → company → booking → footer.</text>
+<text x="40" y="1260" font-size="12" fill="#4D5F6E">Logo text indicates placement. Use the supplied SVG unchanged on white. No client claims or invented metrics.</text>
+<rect x="1044" y="1225" width="48" height="24" rx="3" fill="#102538"/><rect x="1104" y="1225" width="48" height="24" rx="3" fill="#155EEF"/><rect x="1164" y="1225" width="48" height="24" rx="3" fill="#8FC7FF"/><rect x="1224" y="1225" width="48" height="24" rx="3" fill="#F7F8F5"/><rect x="1284" y="1225" width="48" height="24" rx="3" fill="white"/>
+<text x="1044" y="1275" font-size="12" fill="#4D5F6E">Navy · purposeful blue · warm white · Inter</text>
+</g></svg>

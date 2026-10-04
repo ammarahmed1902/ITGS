@@ -1,31 +1,10 @@
-import React from 'react';
-import Reveal from '../components/Reveal';
-
-const BookingPage = () => (
-  <div className="pt-32 pb-24 bg-starfield min-h-screen">
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="text-center mb-12">
-        <Reveal>
-          <span className="text-electric font-bold uppercase tracking-[0.4em] text-xs mb-6 block">Direct Access</span>
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-8">Schedule Your <span className="text-electric">Strategy Session.</span></h1>
-          <p className="text-steel max-w-2xl mx-auto text-lg font-light">
-            Select a time that works for you to discuss your global technology requirements with our experts.
-          </p>
-        </Reveal>
-      </div>
-      
-      <div className="card-premium p-0 overflow-hidden min-h-[700px] relative">
-        <iframe 
-          src="https://calendly.com/ammarzerobyte/30min?embed_domain=ais-dev-tarxpj7axqdr6ngbufwv5f-156932409613.asia-southeast1.run.app&embed_type=Inline"
-          width="100%"
-          height="700"
-          frameBorder="0"
-          title="Calendly Scheduling"
-          className="w-full h-[700px]"
-        ></iframe>
-      </div>
-    </div>
-  </div>
-);
-
-export default BookingPage;
+import {useEffect,useRef,useState} from 'react';
+import {ExternalLink} from 'lucide-react';
+import PageIntro from '../components/PageIntro';
+import type {SiteConfig} from '../lib/siteConfig';
+import {emitAnalytics} from '../lib/analytics';
+export default function BookingPage({config}:{config:SiteConfig}){
+ const [showCalendar,setShowCalendar]=useState(false);const frame=useRef<HTMLIFrameElement>(null);const completed=useRef(false);
+ useEffect(()=>{const onMessage=(event:MessageEvent)=>{if(event.origin!==new URL(config.bookingUrl).origin||event.source!==frame.current?.contentWindow||!event.data||typeof event.data!=='object')return;if(event.data.event==='calendly.event_scheduled'&&!completed.current){completed.current=true;emitAnalytics('booking_complete','/book-a-strategy-call/');}};window.addEventListener('message',onMessage);return()=>window.removeEventListener('message',onMessage);},[config.bookingUrl]);
+ return <div className="page-shell"><div className="site-container"><PageIntro eyebrow="Start a conversation" title="Book a strategy call." description="Choose a convenient time to discuss your goals, constraints and the most useful next step."/><div className="card mt-12 overflow-hidden">{showCalendar?<iframe ref={frame} src={config.bookingUrl} title="Book an ITGS strategy call" className="h-[720px] w-full"/>:<div className="p-8"><p className="max-w-2xl leading-7">Scheduling is provided by Calendly. Loading the calendar connects to Calendly and its service providers. You can also open the scheduler directly.</p><button onClick={()=>{setShowCalendar(true);emitAnalytics('booking_start','/book-a-strategy-call/');}} className="btn-primary mt-6">Load scheduling calendar</button></div>}</div><p className="mt-5 text-sm">Calendar not loading? <a href={config.bookingUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center gap-1 font-semibold text-electric" onClick={()=>emitAnalytics('booking_start','/book-a-strategy-call/')}>Open Calendly <ExternalLink size={14}/></a></p>{config.privacyUrl&&<p className="mt-4"><a href={config.privacyUrl} className="underline">Read our privacy notice</a></p>}</div></div>;
+}

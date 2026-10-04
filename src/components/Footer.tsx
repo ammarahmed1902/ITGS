@@ -1,75 +1,49 @@
-import React from 'react';
-import { Globe, Users } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+import type { MouseEvent } from 'react';
 import { SERVICES_DATA } from '../constants';
+import { pathForPage, servicePath, trackSiteEvent } from '../lib/siteNavigation';
+import Logo from './Logo';
 
-const Footer = ({ setActivePage }: { setActivePage: (page: string) => void }) => {
-  return (
-    <footer className="bg-deep-blue pt-20 pb-10 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          <div>
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 bg-electric rounded flex items-center justify-center">
-                <span className="text-white font-bold">I</span>
-              </div>
-              <span className="text-white font-display text-xl font-bold">ITGS</span>
-            </div>
-            <p className="text-white/40 leading-relaxed">
-              The global authority in psychology-driven technology solutions for the modern enterprise.
-            </p>
-          </div>
-          <div>
-            <h4 className="text-white font-bold mb-6">Quick Links</h4>
-            <ul className="space-y-4 text-white/40 text-sm">
-              <li><button onClick={() => setActivePage('About')} className="hover:text-cyan transition-colors">About Us</button></li>
-              <li><button onClick={() => setActivePage('Team')} className="hover:text-cyan transition-colors">Our Team</button></li>
-              <li><button onClick={() => setActivePage('Careers')} className="hover:text-cyan transition-colors">Careers</button></li>
-              <li><button onClick={() => setActivePage('Blog')} className="hover:text-cyan transition-colors">Blog</button></li>
-              <li><button onClick={() => setActivePage('Admin')} className="hover:text-cyan transition-colors">Admin Login</button></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-white font-bold mb-6">Services</h4>
-            <ul className="space-y-4 text-white/40 text-sm">
-              {SERVICES_DATA.slice(0, 4).map((s, i) => (
-                <li key={i}>
-                  <button 
-                    onClick={() => setActivePage(`Service:${s.id}`)}
-                    className="hover:text-cyan transition-colors text-left"
-                  >
-                    {s.title}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-white font-bold mb-6">Contact</h4>
-            <ul className="space-y-4 text-white/40 text-sm">
-              <li>contact@itgs.global</li>
-              <li>+1 (800) ITGS-TECH</li>
-              <li>Silicon Valley, CA</li>
-              <li className="flex gap-4 pt-4">
-                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-cyan transition-colors cursor-pointer">
-                  <Globe size={16} className="text-white" />
-                </div>
-                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-cyan transition-colors cursor-pointer">
-                  <Users size={16} className="text-white" />
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="pt-10 border-t border-white/5 flex flex-col md:row justify-between items-center gap-4 text-white/20 text-xs uppercase tracking-widest">
-          <p>© 2026 ITGS Global. All rights reserved.</p>
-          <div className="flex gap-8">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-          </div>
-        </div>
+const footerServices = ['web-development', 'mobile-development', 'ui-ux-design', 'digital-marketing', 'seo', 'e-commerce'];
+
+export default function Footer({ setActivePage, compact = false }: { setActivePage: (page: string) => void; compact?: boolean }) {
+  const navigate = (event: MouseEvent<HTMLAnchorElement>, page: string) => { event.preventDefault(); setActivePage(page); };
+  if (compact) return (
+    <footer className="border-t border-white/10 bg-midnight py-7 text-white">
+      <div className="site-container flex flex-col gap-5 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex items-center gap-4"><Logo /><span className="border-l border-white/25 pl-4">Software, products and growth—connected.</span></div>
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2"><span>© 2026 ITGS</span>{['Services','Solutions','Work','Blog'].map(page=><a key={page} href={pathForPage(page)} className="inline-flex min-h-11 items-center text-sky">{page==='Blog'?'Insights':page==='Work'?'Our Work':page}</a>)}<a href={pathForPage('Booking')} onClick={(event) => navigate(event, 'Booking')} className="inline-flex min-h-11 items-center font-medium text-sky hover:text-white">Contact ITGS</a></div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+  return (
+    <footer className="bg-midnight py-14 text-white">
+      <div className="site-container">
+        <div className="grid gap-10 border-b border-white/15 pb-12 sm:grid-cols-2 xl:grid-cols-[1.35fr_1fr_1fr_.8fr_1fr]">
+          <div>
+            <Logo />
+            <p className="mt-6 max-w-sm text-sm leading-6 text-white/65">Software development, digital products, design and digital growth through one connected team.</p>
+            <a href={pathForPage('Booking')} onClick={(event) => { trackSiteEvent('strategy_call_cta_click', { location: 'footer' }); navigate(event, 'Booking'); }} className="mt-7 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-sky hover:text-white">Book a strategy call <ArrowUpRight size={16} /></a>
+          </div>
+          <div>
+            <h2 className="mb-5 text-sm font-semibold tracking-normal text-white">Services</h2>
+            <ul className="grid gap-3 text-sm text-white/60"><li><a href="/services/" className="font-medium text-sky">All services</a></li>{footerServices.map((id) => { const service = SERVICES_DATA.find((item) => item.id === id)!; return <li key={id}><a href={servicePath(id)} onClick={(event) => navigate(event, `Service:${id}`)} className="hover:text-white">{service.title}</a></li>; })}</ul>
+          </div>
+          <div>
+            <h2 className="mb-5 text-sm font-semibold tracking-normal text-white">Solutions</h2>
+            <ul className="grid gap-3 text-sm text-white/60"><li><a href={pathForPage('Solutions')} onClick={(event) => navigate(event, 'Solutions')} className="font-medium text-sky hover:text-white">View all solutions</a></li><li><a href="/solutions/#launch-digital-product" onClick={(event) => navigate(event, 'Solutions')} className="hover:text-white">Launch a digital product</a></li><li><a href="/solutions/#modernize-product" onClick={(event) => navigate(event, 'Solutions')} className="hover:text-white">Modernize a product</a></li><li><a href="/solutions/#improve-organic-visibility" onClick={(event) => navigate(event, 'Solutions')} className="hover:text-white">Improve organic visibility</a></li><li><a href="/solutions/#strengthen-online-commerce" onClick={(event) => navigate(event, 'Solutions')} className="hover:text-white">Strengthen online commerce</a></li></ul>
+          </div>
+          <div>
+            <h2 className="mb-5 text-sm font-semibold tracking-normal text-white">Our Work</h2>
+            <ul className="grid gap-3 text-sm text-white/60"><li><a href={pathForPage('Work')} onClick={(event) => navigate(event, 'Work')} className="font-medium text-sky hover:text-white">View work</a></li><li><a href={pathForPage('Work')} onClick={(event) => navigate(event, 'Work')} className="hover:text-white">Design concepts</a></li><li><a href={pathForPage('Work')} onClick={(event) => navigate(event, 'Work')} className="hover:text-white">Internal concepts</a></li></ul>
+          </div>
+          <div>
+            <h2 className="mb-5 text-sm font-semibold tracking-normal text-white">Company & resources</h2>
+            <ul className="grid gap-3 text-sm text-white/60">{['About', 'Careers', 'Blog'].map((page) => <li key={page}><a href={pathForPage(page)} onClick={(event) => navigate(event, page)} className="hover:text-white">{page === 'Blog' ? 'Insights' : page}</a></li>)}<li><a href={pathForPage('Booking')} onClick={(event) => navigate(event, 'Booking')} className="hover:text-white">Contact</a></li></ul>
+          </div>
+        </div>
+        <div className="flex flex-col gap-3 pt-7 text-xs text-white/65 sm:flex-row sm:justify-between"><p>© 2026 ITGS. All rights reserved.</p><p>Software, products and growth—connected.</p></div>
+      </div>
+    </footer>
+  );
+}

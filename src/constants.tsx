@@ -1,7 +1,6 @@
 import React from 'react';
 import { Target, Search, Users, Code, Smartphone, Layout, Palette, Headphones, Globe } from 'lucide-react';
 import { Service } from './domain/entities/Service';
-import { BlogPost } from './domain/entities/BlogPost';
 
 export const SERVICES_DATA: Service[] = [
   {
@@ -17,40 +16,40 @@ export const SERVICES_DATA: Service[] = [
       { step: "Optimization", desc: "Continuous A/B testing and performance tuning to maximize ROI." }
     ],
     features: ["Performance Marketing", "Content Strategy", "Social Media Management", "Email Automation"],
-    results: "340% average increase in qualified lead volume for enterprise clients within 6 months.",
+    results: "",
     tools: ["Google Ads", "Meta Business Suite", "HubSpot", "Semrush"]
   },
   {
     id: "seo",
     title: "Search Engine Optimization",
     icon: <Search size={36} />,
-    shortDesc: "Dominating search results with advanced technical SEO and authority-building strategies.",
-    overview: "SEO at ITGS is about more than just rankings; it's about visibility and authority. We optimize your technical foundation and content architecture to ensure you own the conversation in your industry.",
+    shortDesc: "Technical SEO, search intent and content architecture for sustainable organic visibility.",
+    overview: "ITGS connects search strategy with the technical, content, information-architecture and measurement work required to implement it responsibly.",
     process: [
-      { step: "Technical Audit", desc: "Identifying and fixing crawlability, indexing, and speed issues." },
-      { step: "Keyword Research", desc: "Mapping high-intent search terms to your customer journey." },
-      { step: "On-Page SEO", desc: "Optimizing content structure, metadata, and internal linking." },
-      { step: "Authority Building", desc: "Strategic backlink acquisition from high-authority domains." }
+      { step: "Diagnose", desc: "Review technical health, architecture, content, demand and measurement." },
+      { step: "Prioritize", desc: "Map intent, page opportunities and implementation priorities." },
+      { step: "Implement", desc: "Execute or coordinate agreed technical, page and content improvements." },
+      { step: "Measure", desc: "Use new visibility and conversion evidence to guide the next iteration." }
     ],
-    features: ["Technical SEO", "Local & Global SEO", "Content Optimization", "Competitor Analysis"],
-    results: "Achieved #1 rankings for 50+ high-competition industry keywords for a Fortune 500 client.",
-    tools: ["Ahrefs", "Google Search Console", "Screaming Frog", "SurferSEO"]
+    features: ["Technical SEO", "Search Intent Strategy", "Content Architecture", "SEO Measurement"],
+    results: "",
+    tools: []
   },
   {
     id: "lead-generation",
     title: "Lead Generation",
     icon: <Users size={36} />,
-    shortDesc: "High-precision lead acquisition systems that fill your pipeline with ready-to-buy prospects.",
-    overview: "We build automated lead generation engines that work 24/7. By combining psychological profiling with advanced targeting, we deliver prospects that are already primed for your sales team.",
+    shortDesc: "Connected acquisition, conversion and qualification systems built around relevant opportunities.",
+    overview: "ITGS connects audience strategy, acquisition, landing experiences, lead qualification, CRM workflows and measurement around the prospects most relevant to the business.",
     process: [
-      { step: "Profiling", desc: "Defining your Ideal Customer Profile (ICP) based on behavioral data." },
-      { step: "Funnel Design", desc: "Building high-converting landing pages and lead magnets." },
-      { step: "Traffic Acquisition", desc: "Driving targeted traffic through paid and organic channels." },
-      { step: "Nurturing", desc: "Automated follow-up sequences to qualify and warm up leads." }
+      { step: "Diagnose", desc: "Review audience, offer, channels, conversion, CRM and measurement." },
+      { step: "Define", desc: "Agree customer fit, buying roles and qualification criteria." },
+      { step: "Implement", desc: "Launch the approved acquisition, conversion and routing system." },
+      { step: "Improve", desc: "Use lead quality, sales feedback and pipeline evidence to set priorities." }
     ],
-    features: ["B2B Lead Gen", "LinkedIn Outreach", "Funnel Optimization", "CRM Integration"],
-    results: "Generated over $50M in attributed pipeline for B2B SaaS clients in the last year.",
-    tools: ["Apollo.io", "Salesforce", "Instantly.ai", "Unbounce"]
+    features: ["Audience Strategy", "Conversion Journeys", "Lead Qualification", "CRM Workflows"],
+    results: "",
+    tools: []
   },
   {
     id: "web-development",
@@ -65,7 +64,7 @@ export const SERVICES_DATA: Service[] = [
       { step: "Deployment", desc: "CI/CD pipelines for seamless, zero-downtime releases." }
     ],
     features: ["Custom Web Apps", "E-commerce Solutions", "Headless CMS", "API Integrations"],
-    results: "Reduced page load times by 65% for a global retailer, leading to a 22% increase in conversions.",
+    results: "",
     tools: ["React / Next.js", "Node.js", "AWS / Vercel", "PostgreSQL"]
   },
   {
@@ -81,7 +80,7 @@ export const SERVICES_DATA: Service[] = [
       { step: "App Store Launch", desc: "Handling the full submission and optimization process." }
     ],
     features: ["iOS & Android", "Cross-Platform", "Real-time Features", "Offline Functionality"],
-    results: "Launched a fintech app that reached 100k active users within the first 3 months.",
+    results: "",
     tools: ["React Native", "Flutter", "Firebase", "Swift / Kotlin"]
   },
   {
@@ -97,7 +96,7 @@ export const SERVICES_DATA: Service[] = [
       { step: "Prototyping", desc: "High-fidelity interactive demos for user validation." }
     ],
     features: ["User Research", "Interface Design", "Experience Mapping", "Design Systems"],
-    results: "Redesigned a complex dashboard resulting in a 40% reduction in user support tickets.",
+    results: "",
     tools: ["Figma", "Adobe XD", "Principle", "Maze"]
   },
   {
@@ -113,141 +112,39 @@ export const SERVICES_DATA: Service[] = [
       { step: "Delivery", desc: "Providing a complete kit of production-ready files." }
     ],
     features: ["Brand Identity", "Marketing Collateral", "Social Media Assets", "Presentation Design"],
-    results: "Created a visual identity for a tech startup that helped them secure $10M in Series A funding.",
+    results: "",
     tools: ["Adobe Creative Suite", "Canva Enterprise", "Midjourney", "After Effects"]
   },
   {
     id: "virtual-assistance",
     title: "Virtual Assistance",
     icon: <Headphones size={36} />,
-    shortDesc: "Elite administrative and operational support to free up your executive bandwidth.",
-    overview: "Our virtual assistants are more than just support; they are operational partners. We provide highly trained professionals who handle the details so you can focus on high-level strategy.",
+    shortDesc: "Administrative and operational support structured around agreed workflows, access and ownership.",
+    overview: "ITGS helps define what should be delegated, how support fits the client's systems and how recurring work is communicated, documented and reviewed.",
     process: [
-      { step: "Matching", desc: "Pairing you with an assistant that fits your specific needs." },
-      { step: "Onboarding", desc: "Integrating the assistant into your workflows and tools." },
-      { step: "Execution", desc: "Daily management of tasks, scheduling, and operations." },
-      { step: "Reporting", desc: "Weekly updates on progress and task completion." }
+      { step: "Scope", desc: "Define tasks, tools, hours, access, communication and success criteria." },
+      { step: "Match", desc: "Select an appropriate support profile against confirmed requirements." },
+      { step: "Onboard", desc: "Set up permissions, workflows, priorities and escalation rules." },
+      { step: "Review", desc: "Review delivery, changing priorities and process improvements." }
     ],
-    features: ["Executive Support", "Data Entry", "Customer Support", "Project Management"],
-    results: "Saved an average of 15 hours per week for C-level executives in our pilot program.",
-    tools: ["Slack", "Asana / Trello", "Google Workspace", "Calendly"]
+    features: ["Administrative Support", "Operations Support", "Project Coordination", "Workflow Documentation"],
+    results: "",
+    tools: []
   },
   {
     id: "e-commerce",
     title: "E-commerce Solutions",
     icon: <Globe size={36} />,
-    shortDesc: "Comprehensive e-commerce management including Amazon, eBay, and Shopify optimization.",
-    overview: "Our e-commerce solutions are designed to dominate global marketplaces. From product sourcing to wholesale management, we provide the technical and operational expertise to scale your online retail business.",
+    shortDesc: "Connected storefront, marketplace and product operations built around a clear commerce model.",
+    overview: "ITGS connects commerce technology, customer experience, marketplace operations, product workflows, acquisition and measurement around the business model.",
     process: [
-      { step: "Sourcing", desc: "Identifying high-margin products and reliable global suppliers." },
-      { step: "Setup", desc: "Configuring Amazon, eBay, and Shopify stores for maximum conversion." },
-      { step: "Optimization", desc: "Advanced listing optimization and PPC management." },
-      { step: "Scaling", desc: "Implementing dropshipping and wholesale models for rapid growth." }
+      { step: "Assess", desc: "Review the commerce model, products, channels, operations and technology." },
+      { step: "Define", desc: "Set platform, marketplace, integration and operating priorities." },
+      { step: "Build", desc: "Configure the approved storefront, catalog, workflows and measurement." },
+      { step: "Improve", desc: "Use customer, commerce and operational evidence to prioritize changes." }
     ],
-    features: ["Amazon & eBay Management", "Shopify Development", "Product Sourcing", "Dropshipping", "Amazon Wholesale"],
-    results: "Managed over $10M in annual GMV for e-commerce partners with a 25% average margin improvement.",
-    tools: ["Amazon Seller Central", "Shopify Plus", "Helium 10", "AutoDS"]
+    features: ["Storefront Technology", "Marketplace Operations", "Catalog Workflows", "Commerce Measurement"],
+    results: "",
+    tools: []
   }
-];
-
-export const INITIAL_POSTS: BlogPost[] = [
-  { 
-    id: "1",
-    title: "The Psychology of Trust in SaaS", 
-    date: "Oct 12, 2026", 
-    category: "UI/UX Design", 
-    status: 'Published',
-    content: "Trust is the foundation of any successful SaaS product...",
-    image: "https://picsum.photos/seed/blog-1/600/400",
-    views: 1240,
-    readTime: "5m"
-  },
-  { 
-    id: "2",
-    title: "Scaling Infrastructure for 2027", 
-    date: "Oct 10, 2026", 
-    category: "Web Development", 
-    status: 'Published',
-    content: "As we approach 2027, the demands on web infrastructure are evolving...",
-    image: "https://picsum.photos/seed/blog-2/600/400",
-    views: 850,
-    readTime: "8m"
-  },
-  { 
-    id: "3",
-    title: "AI Ethics in Global Enterprise", 
-    date: "Oct 05, 2026", 
-    category: "Digital Marketing", 
-    status: 'Draft',
-    content: "The integration of AI into enterprise workflows brings significant ethical considerations...",
-    image: "https://picsum.photos/seed/blog-3/600/400",
-    views: 0,
-    readTime: "6m"
-  },
-  { 
-    id: "4",
-    title: "Maximizing ROI with Technical SEO", 
-    date: "Sep 28, 2026", 
-    category: "Search Engine Optimization", 
-    status: 'Published',
-    content: "Technical SEO remains a critical pillar of digital marketing success...",
-    image: "https://picsum.photos/seed/blog-4/600/400",
-    views: 2100,
-    readTime: "10m"
-  },
-  { 
-    id: "5",
-    title: "The Future of Mobile User Experience", 
-    date: "Sep 22, 2026", 
-    category: "Mobile App Development", 
-    status: 'Published',
-    content: "Mobile UX is shifting towards more immersive and personalized experiences...",
-    image: "https://picsum.photos/seed/blog-5/600/400",
-    views: 1560,
-    readTime: "4m"
-  },
-  { 
-    id: "6",
-    title: "B2B Lead Gen: Beyond the Basics", 
-    date: "Sep 15, 2026", 
-    category: "Lead Generation", 
-    status: 'Published',
-    content: "Effective B2B lead generation requires a deep understanding of the buyer's journey...",
-    image: "https://picsum.photos/seed/blog-6/600/400",
-    views: 920,
-    readTime: "7m"
-  },
-  { 
-    id: "7",
-    title: "E-commerce Trends for Global Markets", 
-    date: "Sep 08, 2026", 
-    category: "E-commerce Solutions", 
-    status: 'Published',
-    content: "Global e-commerce is being reshaped by cross-border trade and social commerce...",
-    image: "https://picsum.photos/seed/blog-7/600/400",
-    views: 1800,
-    readTime: "6m"
-  },
-  { 
-    id: "8",
-    title: "Visual Identity in the Age of AI", 
-    date: "Sep 01, 2026", 
-    category: "Graphic Design", 
-    status: 'Published',
-    content: "AI is both a tool and a challenge for modern graphic designers...",
-    image: "https://picsum.photos/seed/blog-8/600/400",
-    views: 1100,
-    readTime: "5m"
-  },
-  { 
-    id: "9",
-    title: "Operational Excellence with Virtual Partners", 
-    date: "Aug 25, 2026", 
-    category: "Virtual Assistance", 
-    status: 'Published',
-    content: "Virtual assistants are becoming integral to executive productivity...",
-    image: "https://picsum.photos/seed/blog-9/600/400",
-    views: 740,
-    readTime: "4m"
-  },
 ];

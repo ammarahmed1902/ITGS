@@ -1,0 +1,2 @@
+import type {Route} from '../lib/routes';
+export default function Breadcrumbs({items}: {items:Route['breadcrumb']}) {return <nav aria-label="Breadcrumb" className="mb-8 text-sm"><ol className="flex flex-wrap items-center gap-2">{items.map((item,i)=><li key={item.path} className="flex items-center gap-2">{i>0&&<span aria-hidden="true">/</span>}{i===items.length-1?<span aria-current="page">{item.name}</span>:<a className="inline-flex min-h-11 items-center underline" href={item.path}>{item.name}</a>}</li>)}</ol></nav>;}
