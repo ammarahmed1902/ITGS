@@ -1,0 +1,4 @@
+[
+  {"id":"qa-article","slug":"qa-article","title":"QA article routing fixture","author":"QA test author","content":"This controlled fixture verifies article routing, reload, history and safe text rendering. It is never permitted in a production build. <script>alert('test')</script>","category":"Testing","status":"Published","approved":true,"published_at":"2020-01-01T00:00:00Z","image_url":"https://example.org/qa-image.png","image_alt":"Controlled test image","meta_description":"Controlled article routing fixture for automated tests."},
+  {"id":"qa-draft","slug":"qa-draft","title":"Never publish this draft","author":"QA test author","content":"Private fixture","category":"Testing","status":"Draft","approved":false,"published_at":"2020-01-01T00:00:00Z","image_url":"https://example.org/qa-image.png","image_alt":"Test image","meta_description":"Draft fixture."}
+]

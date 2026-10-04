@@ -1,0 +1,13 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {resolveRoute,allRoutes,articleRoute} from '../src/lib/routes';
+import {parsePublishedPosts} from '../src/lib/cms';
+import {parseSiteConfig} from '../src/lib/siteConfig';
+import {metadata} from '../src/lib/metadata';
+import {publishableMetric} from '../src/domain/entities/CaseStudy';
+const record={id:'qa-article',slug:'qa-article',title:'QA article',author:'QA Author',content:'A controlled test article. Not production content.',category:'Testing',status:'Published',approved:true,published_at:'2020-01-01T00:00:00Z',image_url:'https://example.org/image.png',image_alt:'Test image',meta_description:'An article used only to test routing.'};
+test('known, unknown, unpublished and case-sensitive paths',()=>{assert.equal(resolveRoute('/services/web-development/').key,'Service:web-development');for(const path of ['/random-page/','/contact/','/qa-missing-page/','/services/not-real/','/work/not-real/','/company/team/','/company/reviews/','/Services/'])assert.equal(resolveRoute(path).key,'NotFound');assert.equal(new Set(allRoutes().map(r=>r.path)).size,allRoutes().length);});
+test('CMS rejects malformed, unsafe and duplicate records and excludes drafts/future records',()=>{assert.throws(()=>parsePublishedPosts({}));const result=parsePublishedPosts([record,{...record},{...record,slug:'other',author:null},{...record,slug:'unsafe',image_url:'javascript:alert(1)'},{...record,slug:'draft',status:'Draft'},{...record,slug:'future',published_at:'2099-01-01T00:00:00Z'}]);assert.equal(result.posts.length,1);assert.equal(result.rejected,3);});
+test('articles extend registry and have escaped raw metadata',()=>{const post=parsePublishedPosts([record]).posts[0];assert.equal(resolveRoute('/insights/qa-article/',[post]).key,'Article:qa-article');const html=metadata(articleRoute(post),parseSiteConfig({SITE_URL:'https://itgs.test',SITE_ENV:'production'}),[post]);assert.match(html,/Article/);assert.match(html,/https:\/\/itgs.test\/insights\/qa-article\//);assert.match(html,/QA Author/);});
+test('production requires real origin; preview never indexes',()=>{assert.throws(()=>parseSiteConfig({SITE_ENV:'production'}));assert.throws(()=>parseSiteConfig({SITE_ENV:'production',SITE_URL:'http://localhost'}));assert.throws(()=>parseSiteConfig({SITE_ENV:'production',SITE_URL:'https://example.com'}));const c=parseSiteConfig({});assert.equal(c.production,false);assert.match(metadata(allRoutes()[0],c,[]),/noindex, follow/);});
+test('metric publication requires complete approved evidence',()=>{assert.equal(publishableMetric({name:'Growth',baseline:'',finalValue:'500%',definition:'Revenue',period:'1 year',source:'',approved:true}),false);});
