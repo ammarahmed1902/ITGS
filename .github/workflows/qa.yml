@@ -4,8 +4,8 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
@@ -19,7 +19,10 @@ jobs:
           ANALYTICS_ENDPOINT: https://analytics.example.test/events
           ANALYTICS_PREVIEW: 'true'
       - run: npm run test:e2e
-      - uses: actions/upload-artifact@v4
+      - name: Report browser failures
+        if: failure()
+        run: node scripts/report-browser-failures.mjs
+      - uses: actions/upload-artifact@v6
         if: always()
         with:
           name: browser-evidence
