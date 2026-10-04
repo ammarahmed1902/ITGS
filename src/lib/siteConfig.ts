@@ -12,8 +12,13 @@ export interface SiteConfig {
 
 export function parseSiteConfig(env: Record<string, string | undefined>): SiteConfig {
   const production = env.SITE_ENV === 'production' || env.VERCEL_ENV === 'production';
-  if (production && !env.SITE_URL) throw new Error('Production requires the approved SITE_URL.');
-  const url = new URL(env.SITE_URL || 'http://localhost:4173');
+  const vercelHost = production
+    ? env.VERCEL_PROJECT_PRODUCTION_URL || env.VITE_VERCEL_PROJECT_PRODUCTION_URL || env.VERCEL_URL || env.VITE_VERCEL_URL
+    : env.VERCEL_URL || env.VITE_VERCEL_URL;
+  const vercelOrigin = vercelHost ? (/^https?:\/\//i.test(vercelHost) ? vercelHost : `https://${vercelHost}`) : undefined;
+  const configuredOrigin = env.SITE_URL || vercelOrigin;
+  if (production && !configuredOrigin) throw new Error('Production requires SITE_URL or a Vercel production URL.');
+  const url = new URL(configuredOrigin || 'http://localhost:4173');
   if (url.pathname !== '/' || url.search || url.hash || url.username || url.password || !['http:', 'https:'].includes(url.protocol)) throw new Error('SITE_URL must be an origin, without a path or credentials.');
   if (production && (url.protocol !== 'https:' || /localhost|example\.|APPROVED|YOUR_/i.test(url.hostname))) throw new Error('Production requires an approved HTTPS origin.');
   function optionalUrl(value: string | undefined) {
