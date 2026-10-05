@@ -6,7 +6,7 @@ import Logo from './Logo';
 
 type Props = { activePage: string; setActivePage: (page: string) => void };
 
-const companyLinks = ['About', 'Careers'];
+const companyLinks = ['About', 'Careers', 'Contact'];
 const featuredServiceIds = ['web-development', 'mobile-development', 'ui-ux-design', 'digital-marketing', 'seo', 'e-commerce'];
 
 export default function Navbar({ activePage, setActivePage }: Props) {
@@ -65,7 +65,7 @@ export default function Navbar({ activePage, setActivePage }: Props) {
             <a href={pathForPage('Work')} onClick={(event) => { event.preventDefault(); navigate('Work'); }} className={`flex min-h-11 items-center ${activePage === 'Work' ? 'text-sky' : 'text-white/90 hover:text-white'}`}>Our work</a>
             <a href={pathForPage('Blog')} onClick={(event) => { event.preventDefault(); navigate('Blog'); }} className={`flex min-h-11 items-center ${activePage === 'Blog' ? 'text-sky' : 'text-white/90 hover:text-white'}`}>Insights</a>
             <div className="relative">
-              <button ref={companyButton} onClick={() => { setCompanyOpen((open) => !open); setServicesOpen(false); }} aria-expanded={companyOpen} aria-controls="company-menu" className="flex min-h-11 items-center gap-1 text-white/90 hover:text-white">Company <ChevronDown size={15} className={companyOpen ? 'rotate-180' : ''} /></button>
+              <button ref={companyButton} onClick={() => { setCompanyOpen((open) => !open); setServicesOpen(false); }} aria-expanded={companyOpen} aria-controls="company-menu" className={`flex min-h-11 items-center gap-1 ${companyLinks.includes(activePage) ? 'text-sky' : 'text-white/90 hover:text-white'}`}>Company <ChevronDown size={15} className={companyOpen ? 'rotate-180' : ''} /></button>
               {companyOpen && <div id="company-menu" className="absolute right-0 top-12 w-52 rounded-lg border border-white/15 bg-deep-blue p-2 shadow-2xl">{companyLinks.map((link) => <a key={link} href={pathForPage(link)} onClick={(event) => { event.preventDefault(); navigate(link); }} className="block min-h-10 w-full rounded-md px-3 py-2.5 text-left text-sm text-white/80 hover:bg-white/10 hover:text-white">{link}</a>)}</div>}
             </div>
             <a href={pathForPage('Booking')} onClick={(event) => { event.preventDefault(); trackSiteEvent('strategy_call_cta_click', { location: 'header' }); navigate('Booking'); }} className="nav-action inline-flex min-h-11 items-center gap-2 rounded-md border border-sky/60 px-4 text-sm font-semibold text-white shadow-lg shadow-black/15">Book a strategy call <ArrowUpRight size={16} /></a>

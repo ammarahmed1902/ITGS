@@ -144,7 +144,7 @@ export function CompanyNavigationSection({ setActivePage }: Navigate) {
     { title: 'Explore solutions', copy: 'Start with the business outcome you need to achieve.', page: 'Solutions', href: pathForPage('Solutions') },
     { title: 'View our work', copy: 'See work through its problem, decisions and evidence.', page: 'Work', href: pathForPage('Work') },
     { title: 'Read insights', copy: 'Explore practical thinking across products and growth.', page: 'Blog', href: pathForPage('Blog') },
-    { title: 'Contact ITGS', copy: 'Discuss the problem, context and next useful step.', page: 'Booking', href: pathForPage('Booking') },
+    { title: 'Contact ITGS', copy: 'Discuss the problem, context and next useful step.', page: 'Contact', href: pathForPage('Contact') },
   ];
   return <section className="section-space bg-white" aria-labelledby="company-navigation-title"><div className="site-container"><span className="eyebrow">Continue exploring</span><h2 id="company-navigation-title" className="max-w-4xl text-[clamp(2.2rem,4vw,3.5rem)] leading-[1.08]">Find the part of ITGS relevant to you.</h2><div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-5">{items.map((item) => <a key={item.title} href={item.href} onClick={(event) => { event.preventDefault(); trackSiteEvent('about_navigation_click', { destination: item.page.toLowerCase() }); setActivePage(item.page); }} className="card group p-7"><h3 className="flex items-center justify-between gap-4 text-xl">{item.title}<ArrowUpRight className="text-electric transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" size={19} /></h3><p className="mt-3 text-sm leading-6">{item.copy}</p></a>)}</div></div></section>;
 }

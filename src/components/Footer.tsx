@@ -12,7 +12,7 @@ export default function Footer({ setActivePage, compact = false }: { setActivePa
     <footer className="border-t border-white/10 bg-midnight py-7 text-white">
       <div className="site-container flex flex-col gap-5 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-4"><Logo /><span className="border-l border-white/25 pl-4">Software, products and growth—connected.</span></div>
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-2"><span>© 2026 ITGS</span>{['Services','Solutions','Work','Blog'].map(page=><a key={page} href={pathForPage(page)} className="inline-flex min-h-11 items-center text-sky">{page==='Blog'?'Insights':page==='Work'?'Our Work':page}</a>)}<a href={pathForPage('Booking')} onClick={(event) => navigate(event, 'Booking')} className="inline-flex min-h-11 items-center font-medium text-sky hover:text-white">Contact ITGS</a></div>
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2"><span>© 2026 ITGS</span>{['Services','Solutions','Work','Blog'].map(page=><a key={page} href={pathForPage(page)} className="inline-flex min-h-11 items-center text-sky">{page==='Blog'?'Insights':page==='Work'?'Our Work':page}</a>)}<a href={pathForPage('Contact')} onClick={(event) => navigate(event, 'Contact')} className="inline-flex min-h-11 items-center font-medium text-sky hover:text-white">Contact ITGS</a></div>
       </div>
     </footer>
   );
@@ -39,7 +39,7 @@ export default function Footer({ setActivePage, compact = false }: { setActivePa
           </div>
           <div>
             <h2 className="mb-5 text-sm font-semibold tracking-normal text-white">Company & resources</h2>
-            <ul className="grid gap-3 text-sm text-white/60">{['About', 'Careers', 'Blog'].map((page) => <li key={page}><a href={pathForPage(page)} onClick={(event) => navigate(event, page)} className="hover:text-white">{page === 'Blog' ? 'Insights' : page}</a></li>)}<li><a href={pathForPage('Booking')} onClick={(event) => navigate(event, 'Booking')} className="hover:text-white">Contact</a></li></ul>
+            <ul className="grid gap-3 text-sm text-white/60">{['About', 'Careers', 'Blog', 'Contact'].map((page) => <li key={page}><a href={pathForPage(page)} onClick={(event) => navigate(event, page)} className="hover:text-white">{page === 'Blog' ? 'Insights' : page}</a></li>)}</ul>
           </div>
         </div>
         <div className="flex flex-col gap-3 pt-7 text-xs text-white/65 sm:flex-row sm:justify-between"><p>© 2026 ITGS. All rights reserved.</p><p>Software, products and growth—connected.</p></div>

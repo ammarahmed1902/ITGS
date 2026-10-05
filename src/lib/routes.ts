@@ -1,8 +1,8 @@
 import type { BlogPost } from '../domain/entities/BlogPost';
 
 export type ServiceId = 'web-development' | 'mobile-development' | 'ui-ux-design' | 'graphic-design' | 'digital-marketing' | 'seo' | 'lead-generation' | 'e-commerce' | 'virtual-assistance';
-export type PageKey = 'Home' | 'Services' | 'Solutions' | 'Work' | 'About' | 'Careers' | 'Blog' | 'Booking' | 'NotFound' | `Service:${ServiceId}` | `Article:${string}`;
-export interface Route { key: PageKey; path: string; title: string; description: string; pageType: 'home' | 'hub' | 'service' | 'company' | 'article' | 'booking' | 'error'; indexable: boolean; sitemap: boolean; breadcrumb: {name: string; path: string}[]; }
+export type PageKey = 'Home' | 'Services' | 'Solutions' | 'Work' | 'About' | 'Careers' | 'Contact' | 'Blog' | 'Booking' | 'NotFound' | `Service:${ServiceId}` | `Article:${string}`;
+export interface Route { key: PageKey; path: string; title: string; description: string; pageType: 'home' | 'hub' | 'service' | 'company' | 'contact' | 'article' | 'booking' | 'error'; indexable: boolean; sitemap: boolean; breadcrumb: {name: string; path: string}[]; }
 const home = {name: 'Home', path: '/'};
 function route(key: PageKey, path: string, label: string, title: string, description: string, pageType: Route['pageType']): Route {
   return {key, path, title, description, pageType, indexable: true, sitemap: true, breadcrumb: key === 'Home' ? [] : [home, ...(pageType === 'service' ? [{name:'Services', path:'/services/'}] : []), {name:label, path}]};
@@ -14,6 +14,7 @@ export const routes: Route[] = [
   route('Work','/work/','Our Work','Internal Design Concepts | ITGS','Explore self-initiated ITGS design concepts. These examples are not client work and make no performance claims.','hub'),
   route('About','/company/about/','About','About ITGS | Digital Product, Technology & Growth Partner','Learn about ITGS and our connected approach to product design, software engineering, digital growth and operational support.','company'),
   route('Careers','/company/careers/','Careers','Careers at ITGS | Current Openings','Check current published opportunities at ITGS. There are no published openings at this time.','company'),
+  route('Contact','/contact/','Contact','Contact ITGS | Start a Conversation','Contact ITGS to discuss a digital product, technology, design, growth or operational objective and identify a practical next step.','contact'),
   route('Blog','/insights/','Insights','Digital Product & Growth Insights | ITGS','Practical ITGS insights on digital products, development, design and sustainable growth.','hub'),
   route('Booking','/book-a-strategy-call/','Book a strategy call','Book a Strategy Call | ITGS','Book a strategy call with ITGS to discuss your digital product, platform or growth objective.','booking'),
   ...([
