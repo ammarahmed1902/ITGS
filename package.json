@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite --port 3000",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint src scripts tests",
-    "test": "tsx --test tests/unit.test.ts",
+    "lint": "eslint src scripts tests api",
+    "test": "tsx --test tests/unit.test.ts tests/contact-api.test.mjs",
     "build": "npm run typecheck && vite build && vite build --ssr src/entry-server.tsx --outDir .build && node scripts/prerender.mjs",
     "preview": "node scripts/preview.mjs",
     "test:routes": "node --test tests/routes.test.mjs",

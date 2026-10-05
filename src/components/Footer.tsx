@@ -23,7 +23,7 @@ export default function Footer({ setActivePage, compact = false }: { setActivePa
           <div>
             <Logo />
             <p className="mt-6 max-w-sm text-sm leading-6 text-white/65">Software development, digital products, design and digital growth through one connected team.</p>
-            <a href={pathForPage('Booking')} onClick={(event) => { trackSiteEvent('strategy_call_cta_click', { location: 'footer' }); navigate(event, 'Booking'); }} className="mt-7 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-sky hover:text-white">Book a strategy call <ArrowUpRight size={16} /></a>
+            <a href={pathForPage('Contact')} onClick={(event) => { trackSiteEvent('contact_cta_click', { location: 'footer' }); navigate(event, 'Contact'); }} className="mt-7 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-sky hover:text-white">Contact us <ArrowUpRight size={16} /></a>
           </div>
           <div>
             <h2 className="mb-5 text-sm font-semibold tracking-normal text-white">Services</h2>

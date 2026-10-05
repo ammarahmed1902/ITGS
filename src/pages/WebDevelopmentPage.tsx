@@ -66,7 +66,7 @@ export default function WebDevelopmentPage({ setActivePage, posts, loading }: Pr
               <h1 className="text-balance text-[clamp(2.75rem,5vw,4.8rem)] font-semibold leading-[1.03] tracking-[-.055em] text-white">Web development built around <span className="text-sky">your business.</span></h1>
               <p className="mt-7 max-w-xl text-lg leading-8 text-[#d3e0ed]">Websites, portals and web applications designed around business requirements, the people who use them, technical performance, search readiness and room to evolve.</p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <a href={pathForPage('Booking')} onClick={(event) => { event.preventDefault(); trackSiteEvent('discuss_web_project_cta', { location: 'web_hero' }); setActivePage('Booking'); }} className="btn-primary">Discuss your web project <ArrowRight size={18} aria-hidden="true" /></a>
+                <a href={pathForPage('Contact')} onClick={(event) => { event.preventDefault(); trackSiteEvent('discuss_web_project_cta', { location: 'web_hero' }); setActivePage('Contact'); }} className="btn-primary">Discuss your web project <ArrowRight size={18} aria-hidden="true" /></a>
                 <a href="#web-development-example" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md px-4 text-sm font-semibold text-white transition-colors hover:text-sky">View web development work <ArrowRight size={17} aria-hidden="true" /></a>
               </div>
             </div>
@@ -164,7 +164,7 @@ export default function WebDevelopmentPage({ setActivePage, posts, loading }: Pr
           <p className="mb-4 text-[11px] font-semibold uppercase tracking-[.17em] text-sky">Ready to get started?</p>
           <h2 id="web-closing-title" className="max-w-3xl text-[clamp(2.4rem,4.5vw,4rem)] leading-[1.08] text-white">Let’s build your next chapter.</h2>
           <p className="mt-5 max-w-xl text-base leading-7 text-white/75">Tell us what you’re trying to build, replace or improve. We can help define the most useful next step around the users, systems and business requirements involved.</p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row"><a href={pathForPage('Booking')} onClick={(event) => { event.preventDefault(); trackSiteEvent('discuss_web_project_cta', { location: 'web_final_cta' }); setActivePage('Booking'); }} className="btn-primary">Discuss your web project <ArrowRight size={18} aria-hidden="true" /></a><a href={pathForPage('Booking')} onClick={(event) => { event.preventDefault(); trackSiteEvent('strategy_call_cta_click', { location: 'web_final_cta' }); setActivePage('Booking'); }} className="btn-outline-dark">Book a strategy call <ArrowUpRight size={18} aria-hidden="true" /></a></div>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row"><a href={pathForPage('Contact')} onClick={(event) => { event.preventDefault(); trackSiteEvent('discuss_web_project_cta', { location: 'web_final_cta' }); setActivePage('Contact'); }} className="btn-primary">Discuss your web project <ArrowRight size={18} aria-hidden="true" /></a><a href={pathForPage('Contact')} onClick={(event) => { event.preventDefault(); trackSiteEvent('contact_cta_click', { location: 'web_final_cta' }); setActivePage('Contact'); }} className="btn-outline-dark">Contact us <ArrowUpRight size={18} aria-hidden="true" /></a></div>
         </div>
       </section>
     </div>

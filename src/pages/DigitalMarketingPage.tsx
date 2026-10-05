@@ -71,7 +71,7 @@ export const DIGITAL_MARKETING_FAQS = [
 export default function DigitalMarketingPage({ setActivePage, posts, loading }: Props) {
   const bookCall = (location: string) => {
     trackSiteEvent('discuss_marketing_goals_cta', { location });
-    setActivePage('Booking');
+    setActivePage('Contact');
   };
 
   return (
@@ -93,7 +93,7 @@ export default function DigitalMarketingPage({ setActivePage, posts, loading }: 
               <h1 className="text-balance text-[clamp(2.75rem,5vw,4.8rem)] font-semibold leading-[1.03] tracking-[-.055em] text-white">Digital marketing built around <span className="text-sky">measurable growth.</span></h1>
               <p className="mt-7 max-w-xl text-lg leading-8 text-[#d3e0ed]">Connect strategy, performance marketing, content, social, lifecycle campaigns, conversion experiences and measurement around the audiences and outcomes that matter to your business.</p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <a href={pathForPage('Booking')} onClick={(event) => { event.preventDefault(); bookCall('hero'); }} className="btn-primary">Discuss your marketing goals <ArrowRight size={18} /></a>
+                <a href={pathForPage('Contact')} onClick={(event) => { event.preventDefault(); bookCall('hero'); }} className="btn-primary">Discuss your marketing goals <ArrowRight size={18} /></a>
                 <a href="#marketing-approach" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md px-4 text-sm font-semibold text-white transition-colors hover:text-sky">Explore our approach <ArrowRight size={17} /></a>
               </div>
             </div>
@@ -137,7 +137,7 @@ export default function DigitalMarketingPage({ setActivePage, posts, loading }: 
       </section>
 
       <section className="hero-atmosphere py-16 text-white md:py-20" aria-labelledby="marketing-closing-title">
-        <div className="site-container"><p className="mb-4 text-[11px] font-semibold uppercase tracking-[.17em] text-sky">Ready to connect the journey?</p><h2 id="marketing-closing-title" className="max-w-4xl text-[clamp(2.4rem,4.5vw,4rem)] leading-[1.08] text-white">Turn marketing activity into a connected growth system.</h2><p className="mt-5 max-w-2xl text-base leading-7 text-white/75">Tell us what you need marketing to achieve, what is already in place and where the journey is unclear. We can help identify a focused next step.</p><div className="mt-8 flex flex-col gap-3 sm:flex-row"><a href={pathForPage('Booking')} onClick={(event) => { event.preventDefault(); bookCall('closing'); }} className="btn-primary">Discuss your marketing goals <ArrowRight size={18} /></a><a href={pathForPage('Booking')} onClick={(event) => { event.preventDefault(); trackSiteEvent('strategy_call_cta_click', { location: 'digital_marketing_closing' }); setActivePage('Booking'); }} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-white/30 px-5 text-sm font-semibold text-white hover:bg-white/10">Book a strategy call <ArrowRight size={17} /></a></div></div>
+        <div className="site-container"><p className="mb-4 text-[11px] font-semibold uppercase tracking-[.17em] text-sky">Ready to connect the journey?</p><h2 id="marketing-closing-title" className="max-w-4xl text-[clamp(2.4rem,4.5vw,4rem)] leading-[1.08] text-white">Turn marketing activity into a connected growth system.</h2><p className="mt-5 max-w-2xl text-base leading-7 text-white/75">Tell us what you need marketing to achieve, what is already in place and where the journey is unclear. We can help identify a focused next step.</p><div className="mt-8 flex flex-col gap-3 sm:flex-row"><a href={pathForPage('Contact')} onClick={(event) => { event.preventDefault(); bookCall('closing'); }} className="btn-primary">Discuss your marketing goals <ArrowRight size={18} /></a><a href={pathForPage('Contact')} onClick={(event) => { event.preventDefault(); trackSiteEvent('contact_cta_click', { location: 'digital_marketing_closing' }); setActivePage('Contact'); }} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-white/30 px-5 text-sm font-semibold text-white hover:bg-white/10">Contact us <ArrowRight size={17} /></a></div></div>
       </section>
     </div>
   );

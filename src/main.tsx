@@ -6,7 +6,7 @@ import './index.css';
 async function start(){
   const root=document.getElementById('root');if(!root)throw new Error('Missing application root');
   const source=document.getElementById('itgs-page-data');
-  const data:AppData=source?JSON.parse(source.textContent||'{}'):{route:resolveRoute(location.pathname),posts:[],config:{origin:location.origin,production:false,bookingUrl:'https://calendly.com/ammarzerobyte/30min'}};
+  const data:AppData=source?JSON.parse(source.textContent||'{}'):{route:resolveRoute(location.pathname),posts:[],config:{origin:location.origin,production:false}};
   const initialPage=await loadPage(data.route);
   const app=<App data={data} initialPage={initialPage}/>;
   if(source&&root.hasChildNodes())hydrateRoot(root,app);

@@ -1,8 +1,8 @@
 import type { SiteConfig } from './siteConfig';
-export type AnalyticsEvent = 'page_view'|'strategy_call_click'|'service_click'|'solution_click'|'case_study_click'|'insight_click'|'booking_start'|'booking_complete';
+export type AnalyticsEvent = 'page_view'|'contact_click'|'service_click'|'solution_click'|'case_study_click'|'insight_click';
 let config: SiteConfig|undefined;let lastView='';
 let consent=false;
-const events=new Set<AnalyticsEvent>(['page_view','strategy_call_click','service_click','solution_click','case_study_click','insight_click','booking_start','booking_complete']);
+const events=new Set<AnalyticsEvent>(['page_view','contact_click','service_click','solution_click','case_study_click','insight_click']);
 export function initializeAnalytics(next: SiteConfig){config=next;try{consent=localStorage.getItem('itgs.analytics.consent')==='granted';}catch{consent=false;}}
 export function setAnalyticsConsent(granted: boolean){consent=granted;try{localStorage.setItem('itgs.analytics.consent',granted?'granted':'denied');}catch{/* Storage may be disabled. */}if(granted){lastView='';pageView(location.pathname);}}
 export function emitAnalytics(event: AnalyticsEvent,path: string){

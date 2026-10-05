@@ -11,7 +11,7 @@ export default function CTASection({ setActivePage }: { setActivePage: (page: st
             <h2 className="max-w-2xl text-[clamp(2rem,4vw,3.25rem)] leading-[1.08] text-white">Let’s discuss what you need next.</h2>
             <p className="mt-4 max-w-xl leading-7 text-white/65">Choose a time to share your goals and explore the most useful next step.</p>
           </div>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:mt-0 lg:pl-8"><a href={pathForPage('Booking')} onClick={(event) => { event.preventDefault(); trackSiteEvent('strategy_call_cta_click', { location: 'homepage_final_cta' }); setActivePage('Booking'); }} className="btn-light">Book a strategy call <ArrowUpRight size={18} /></a><a href={pathForPage('Work')} onClick={(event) => { event.preventDefault(); setActivePage('Work'); }} className="btn-outline-dark">Explore our work <ArrowUpRight size={18} /></a></div>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:mt-0 lg:pl-8"><a href={pathForPage('Contact')} onClick={(event) => { event.preventDefault(); trackSiteEvent('contact_cta_click', { location: 'homepage_final_cta' }); setActivePage('Contact'); }} className="btn-light">Contact us <ArrowUpRight size={18} /></a><a href={pathForPage('Work')} onClick={(event) => { event.preventDefault(); setActivePage('Work'); }} className="btn-outline-dark">Explore our work <ArrowUpRight size={18} /></a></div>
         </div>
       </div>
     </section>

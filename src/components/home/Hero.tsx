@@ -17,8 +17,8 @@ export default function Hero({ setActivePage }: { setActivePage: (page: string) 
             ITGS helps organizations design, build, launch and improve digital products and customer-acquisition systems through one connected team.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <a href={pathForPage('Booking')} onClick={(event) => { event.preventDefault(); trackSiteEvent('strategy_call_cta_click', { location: 'homepage_hero' }); setActivePage('Booking'); }} className="btn-light">
-              Book a strategy call <ArrowUpRight size={18} />
+            <a href={pathForPage('Contact')} onClick={(event) => { event.preventDefault(); trackSiteEvent('contact_cta_click', { location: 'homepage_hero' }); setActivePage('Contact'); }} className="btn-light">
+              Contact us <ArrowUpRight size={18} />
             </a>
             <a href="#services" className="btn-outline-dark">
               Explore services <ArrowRight size={18} />

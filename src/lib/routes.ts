@@ -1,8 +1,8 @@
 import type { BlogPost } from '../domain/entities/BlogPost';
 
 export type ServiceId = 'web-development' | 'mobile-development' | 'ui-ux-design' | 'graphic-design' | 'digital-marketing' | 'seo' | 'lead-generation' | 'e-commerce' | 'virtual-assistance';
-export type PageKey = 'Home' | 'Services' | 'Solutions' | 'Work' | 'About' | 'Careers' | 'Contact' | 'Blog' | 'Booking' | 'NotFound' | `Service:${ServiceId}` | `Article:${string}`;
-export interface Route { key: PageKey; path: string; title: string; description: string; pageType: 'home' | 'hub' | 'service' | 'company' | 'contact' | 'article' | 'booking' | 'error'; indexable: boolean; sitemap: boolean; breadcrumb: {name: string; path: string}[]; }
+export type PageKey = 'Home' | 'Services' | 'Solutions' | 'Work' | 'About' | 'Careers' | 'Contact' | 'Blog' | 'NotFound' | `Service:${ServiceId}` | `Article:${string}`;
+export interface Route { key: PageKey; path: string; title: string; description: string; pageType: 'home' | 'hub' | 'service' | 'company' | 'contact' | 'article' | 'error'; indexable: boolean; sitemap: boolean; breadcrumb: {name: string; path: string}[]; }
 const home = {name: 'Home', path: '/'};
 function route(key: PageKey, path: string, label: string, title: string, description: string, pageType: Route['pageType']): Route {
   return {key, path, title, description, pageType, indexable: true, sitemap: true, breadcrumb: key === 'Home' ? [] : [home, ...(pageType === 'service' ? [{name:'Services', path:'/services/'}] : []), {name:label, path}]};
@@ -16,7 +16,6 @@ export const routes: Route[] = [
   route('Careers','/company/careers/','Careers','Careers at ITGS | Current Openings','Check current published opportunities at ITGS. There are no published openings at this time.','company'),
   route('Contact','/contact/','Contact','Contact ITGS | Start a Conversation','Contact ITGS to discuss a digital product, technology, design, growth or operational objective and identify a practical next step.','contact'),
   route('Blog','/insights/','Insights','Digital Product & Growth Insights | ITGS','Practical ITGS insights on digital products, development, design and sustainable growth.','hub'),
-  route('Booking','/book-a-strategy-call/','Book a strategy call','Book a Strategy Call | ITGS','Book a strategy call with ITGS to discuss your digital product, platform or growth objective.','booking'),
   ...([
     ['web-development','web-development','Web Development','Custom websites, portals and web applications built around business requirements, user experience, performance and search readiness.'],
     ['mobile-development','mobile-app-development','Mobile App Development','Plan, design and build custom iOS and Android applications around users, integrations, product requirements and release goals.'],

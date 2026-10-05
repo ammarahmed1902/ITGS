@@ -40,7 +40,7 @@ export default function App({data,initialPage}:{data:AppData;initialPage:Compone
     if(url.origin!==location.origin||anchor.target==='_blank'||anchor.hasAttribute('download')||anchor.getAttribute('href')==='#main-content')return;
     const next=resolveRoute(url.pathname,data.posts);if(next.key==='NotFound')return;
     event.preventDefault();event.stopPropagation();
-    if(next.key==='Booking')emitAnalytics('strategy_call_click',view.route.path);
+    if(next.key==='Contact')emitAnalytics('contact_click',view.route.path);
     else if(next.pageType==='service')emitAnalytics('service_click',next.path);
     else if(next.key==='Solutions')emitAnalytics('solution_click',next.path);
     else if(next.pageType==='article')emitAnalytics('insight_click',next.path);

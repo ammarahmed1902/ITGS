@@ -2,12 +2,13 @@
   "buildCommand": "npm run release",
   "outputDirectory": "dist",
   "framework": null,
+  "redirects": [{"source":"/book-a-strategy-call/","destination":"/contact/","permanent":true}],
   "trailingSlash": true,
   "headers": [{"source":"/(.*)","headers":[
     {"key":"X-Content-Type-Options","value":"nosniff"},
     {"key":"Referrer-Policy","value":"strict-origin-when-cross-origin"},
     {"key":"X-Frame-Options","value":"DENY"},
     {"key":"Permissions-Policy","value":"camera=(), microphone=(), geolocation=()"},
-    {"key":"Content-Security-Policy-Report-Only","value":"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; frame-src https://calendly.com; connect-src 'self' https:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"}
+    {"key":"Content-Security-Policy-Report-Only","value":"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; frame-src 'none'; connect-src 'self' https:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"}
   ]}]
 }

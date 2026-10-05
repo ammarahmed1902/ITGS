@@ -7,7 +7,6 @@ export interface SiteConfig {
   analyticsEndpoint?: string;
   monitoringEndpoint?: string;
   privacyUrl?: string;
-  bookingUrl: string;
 }
 
 export function parseSiteConfig(env: Record<string, string | undefined>): SiteConfig {
@@ -30,6 +29,5 @@ export function parseSiteConfig(env: Record<string, string | undefined>): SiteCo
   }
   return { origin: url.origin, production, shareImage: optionalUrl(env.SOCIAL_IMAGE_URL),shareImageWidth: env.SOCIAL_IMAGE_WIDTH ? Number(env.SOCIAL_IMAGE_WIDTH) : undefined,shareImageHeight:env.SOCIAL_IMAGE_HEIGHT?Number(env.SOCIAL_IMAGE_HEIGHT):undefined,
     analyticsEndpoint: production || env.ANALYTICS_PREVIEW === 'true' ? optionalUrl(env.ANALYTICS_ENDPOINT) : undefined,
-    monitoringEndpoint: optionalUrl(env.MONITORING_ENDPOINT), privacyUrl: optionalUrl(env.PRIVACY_URL),
-    bookingUrl: optionalUrl(env.BOOKING_URL) || 'https://calendly.com/ammarzerobyte/30min' };
+    monitoringEndpoint: optionalUrl(env.MONITORING_ENDPOINT), privacyUrl: optionalUrl(env.PRIVACY_URL) };
 }

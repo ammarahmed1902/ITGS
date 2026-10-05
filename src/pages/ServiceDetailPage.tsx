@@ -26,7 +26,7 @@ export default function ServiceDetailPage({
             <IconBadge dark className="mb-6">{service.icon}</IconBadge>
             <h1 className="page-title max-w-3xl text-white">{service.title}</h1>
             <p className="mt-6 max-w-3xl text-xl leading-8 text-white/70">{service.shortDesc}</p>
-            <a href="/book-a-strategy-call/" className="btn-light mt-9">Book a strategy call <ArrowRight size={18} /></a>
+            <a href="/contact/" className="btn-light mt-9">Contact us <ArrowRight size={18} /></a>
           </div>
         </div>
       </section>

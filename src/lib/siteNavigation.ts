@@ -7,5 +7,5 @@ export const pageFromPath=(path:string)=>resolveRoute(path).key;
 export function trackSiteEvent(eventName:string,_details:Record<string,string>={}){
   if(typeof window==='undefined')return;
   const path=resolveRoute(location.pathname).path;
-  if(/strategy|cta|discuss/.test(eventName))emitAnalytics('strategy_call_click',path);
+  if(/contact|cta|discuss/.test(eventName))emitAnalytics('contact_click',path);
 }
