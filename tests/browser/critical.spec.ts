@@ -14,8 +14,8 @@ test('skip link, mobile menu and solution fragment focus',async({page})=>{
  const menu=page.getByRole('button',{name:'Menu',exact:true});await menu.click();await expect(menu).toHaveAttribute('aria-expanded','true');await page.keyboard.press('Escape');await expect(menu).toBeFocused();await expect(menu).toHaveAttribute('aria-expanded','false');
  await page.locator('a[href="/solutions/#improve-organic-visibility"]').first().click();await expect(page).toHaveURL(/\/solutions\/#improve-organic-visibility$/);await expect(page.locator('#improve-organic-visibility')).toBeFocused();await page.reload();await expect(page.locator('#improve-organic-visibility')).toBeVisible();
 });
-test('desktop escape and contact form entry',async({page})=>{
- await page.goto('/');const services=page.getByRole('button',{name:'Services',exact:true});await services.click();await page.keyboard.press('Escape');await expect(services).toBeFocused();await expect(services).toHaveAttribute('aria-expanded','false');
+test('desktop hover, escape and contact form entry',async({page})=>{
+ await page.goto('/');const services=page.getByRole('button',{name:'Services',exact:true});await services.hover();await expect(services).toHaveAttribute('aria-expanded','true');await page.keyboard.press('Escape');await expect(services).toBeFocused();await expect(services).toHaveAttribute('aria-expanded','false');
  const contact=page.getByRole('link',{name:'Contact us',exact:true}).first();await contact.focus();await expect(contact).toBeFocused();await page.keyboard.press('Enter');await expect(page).toHaveURL(/contact\/$/);await expect(page.locator('h1')).toBeFocused();await expect(page.getByRole('form')).toHaveCount(1);await expect(page.getByRole('button',{name:'Send enquiry'})).toBeVisible();
 });
 test('native FAQs respond to keyboard',async({page})=>{await page.goto('/services/web-development/');const summary=page.locator('summary').first();await summary.focus();await page.keyboard.press('Enter');await expect(page.locator('details').first()).toHaveAttribute('open','');});

@@ -47,10 +47,14 @@ export default function Navbar({ activePage, setActivePage }: Props) {
           <span className="mr-auto hidden border-l border-white/15 pl-5 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#afc9dc] xl:block">Digital partner</span>
 
           <div className="hidden items-center gap-5 lg:flex xl:gap-7">
-            <div className="relative">
+            <div
+              className="relative"
+              onMouseEnter={() => { setServicesOpen(true); setCompanyOpen(false); }}
+              onMouseLeave={() => setServicesOpen(false)}
+            >
               <button ref={servicesButton} onClick={() => { setServicesOpen((open) => !open); setCompanyOpen(false); }} aria-expanded={servicesOpen} aria-controls="services-menu" className={`flex min-h-11 items-center gap-1 ${activePage.startsWith('Service') ? 'text-sky' : 'text-white/90 hover:text-white'}`}>Services <ChevronDown size={15} className={servicesOpen ? 'rotate-180' : ''} /></button>
               {servicesOpen && (
-                <div id="services-menu" className="absolute left-0 top-12 w-[560px] rounded-xl border border-white/15 bg-deep-blue p-3 shadow-2xl">
+                <div id="services-menu" className="absolute left-0 top-11 w-[560px] rounded-xl border border-white/15 bg-deep-blue p-3 shadow-2xl">
                   <div className="grid grid-cols-2 gap-1">
                     {featuredServiceIds.map((id) => {
                       const service = SERVICES_DATA.find((item) => item.id === id)!;
