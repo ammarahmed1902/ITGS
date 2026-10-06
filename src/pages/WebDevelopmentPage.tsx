@@ -46,12 +46,12 @@ const technologyStack = [
   { name: 'TypeScript', image: '/images/technology/typescript.svg' },
   { name: 'Node.js', image: '/images/technology/nodejs.svg' },
   { name: 'Vite', image: '/images/technology/vite.svg' },
-  { name: 'Vercel', image: '/images/technology/vercel.svg', lightOnDark: true },
+  { name: 'Vercel', image: '/images/technology/vercel.svg' },
   { name: 'Supabase', image: '/images/technology/supabase.svg' },
   { name: 'OpenAPI', image: '/images/technology/openapi.svg' },
   { name: 'Git', image: '/images/technology/git.svg' },
   { name: 'Docker', image: '/images/technology/docker.svg' },
-  { name: 'WordPress', image: '/images/technology/wordpress.svg', lightOnDark: true },
+  { name: 'WordPress', image: '/images/technology/wordpress.svg' },
 ];
 
 const quality: IconItem[] = [
@@ -132,10 +132,10 @@ export default function WebDevelopmentPage({ setActivePage, posts, loading }: Pr
       <section className="section-space border-y border-border bg-[#f7f9fb]" aria-labelledby="web-tech-title">
         <div className="site-container">
           <div className="grid gap-5 lg:grid-cols-[.8fr_1.2fr] lg:items-end"><div><p className="eyebrow">Technology & platform expertise</p><h2 id="web-tech-title" className="max-w-xl text-[clamp(2.25rem,4vw,3.5rem)] leading-[1.06]">Modern technology for modern products.</h2></div><p className="max-w-2xl text-base leading-7 lg:justify-self-end">The stack follows the requirements, ownership model and systems involved. These technologies are already used in the ITGS delivery environment.</p></div>
-          <div className="tech-logo-marquee mt-11 rounded-2xl border border-white/10 bg-[#03090f] py-8 shadow-[0_24px_70px_rgba(6,19,31,.22)] sm:py-10" role="region" aria-label="ITGS web development technology stack">
+          <div className="tech-logo-marquee mt-11 py-8 sm:py-10" role="region" aria-label="ITGS web development technology stack">
             <div className="tech-logo-track">
               {[0, 1].map((copy) => <ul key={copy} className="tech-logo-group" aria-hidden={copy === 1 ? 'true' : undefined}>
-                {technologyStack.map(({ name, image, lightOnDark }) => <li key={`${copy}-${name}`} className="tech-logo-item"><img src={image} alt={copy === 0 ? `${name} logo` : ''} width="56" height="56" loading="lazy" className={`h-12 w-16 object-contain sm:h-14 sm:w-20 ${lightOnDark ? 'brightness-0 invert' : ''}`} /><span className="mt-3 text-xs font-semibold text-white/80 sm:text-sm">{name}</span></li>)}
+                {technologyStack.map(({ name, image }) => <li key={`${copy}-${name}`} className="tech-logo-item"><img src={image} alt={copy === 0 ? `${name} logo` : ''} width="56" height="56" loading="lazy" className="h-12 w-16 object-contain sm:h-14 sm:w-20" /><span className="mt-3 text-xs font-semibold text-ink/80 sm:text-sm">{name}</span></li>)}
               </ul>)}
             </div>
           </div>
