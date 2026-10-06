@@ -800,8 +800,51 @@
 .nav-action { background: linear-gradient(135deg, #3986ff, #155eef); }
 .text-balance { text-wrap: balance; }
 
+.tech-logo-marquee {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+}
+
+.tech-logo-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: tech-logo-marquee 26s linear infinite;
+}
+
+.tech-logo-marquee:hover .tech-logo-track { animation-play-state: paused; }
+
+.tech-logo-group {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 2.25rem;
+  margin: 0;
+  padding: 0 2.25rem 0 0;
+  list-style: none;
+}
+
+.tech-logo-item {
+  display: flex;
+  width: 7.5rem;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@keyframes tech-logo-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+  .tech-logo-marquee { overflow-x: auto; mask-image: none; }
+  .tech-logo-track { animation: none !important; transform: none !important; }
 }
 
 @media (min-width: 768px) {
@@ -809,6 +852,8 @@
 }
 
 @media (max-width: 767px) {
+  .tech-logo-group { gap: 1rem; padding-right: 1rem; }
+  .tech-logo-item { width: 6.5rem; }
   .ambient-wash { animation-duration: 26s; }
   .ambient-glow { width: 320px; right: -90px; filter: blur(22px); }
   .ambient-grid { background-size: 56px 56px; opacity: .045; }

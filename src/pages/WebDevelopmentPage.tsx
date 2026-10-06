@@ -1,7 +1,7 @@
 import {
   Accessibility, ArrowRight, ArrowUpRight, Blocks, Check, ChevronDown,
-  CircleGauge, Code2, FileCheck2, Gauge, LayoutTemplate, Link2,
-  MonitorSmartphone, PanelsTopLeft, Rocket, Search, ShieldCheck, TestTube2,
+  CircleGauge, ClipboardList, Code2, FileCheck2, FileCode2, Gauge, LayoutTemplate, Link2,
+  ListChecks, MonitorSmartphone, PackageCheck, PanelsTopLeft, PenTool, Search, ShieldCheck,
   type LucideIcon,
 } from 'lucide-react';
 import WebsitePreview from '../components/web-development/WebsitePreview';
@@ -28,11 +28,11 @@ const whyItems: IconItem[] = [
 ];
 
 const process = [
-  { title: 'Discovery & planning', copy: 'Clarify goals, audiences, content, systems and scope.', output: 'Project brief', icon: Search },
-  { title: 'UI/UX design', copy: 'Shape journeys, structure, responsive screens and interactions.', output: 'Approved prototype', icon: LayoutTemplate },
-  { title: 'Development', copy: 'Build the agreed frontend, backend and integrations.', output: 'Staging product', icon: Code2 },
-  { title: 'Testing & QA', copy: 'Check function, devices, accessibility and agreed requirements.', output: 'Tested release', icon: TestTube2 },
-  { title: 'Launch & handover', copy: 'Coordinate deployment, documentation and final access.', output: 'Handover package', icon: Rocket },
+  { title: 'Discovery & planning', copy: 'Clarify goals, audiences, content, systems and scope.', output: 'Project brief', icon: ClipboardList },
+  { title: 'UI/UX design', copy: 'Shape journeys, structure, responsive screens and interactions.', output: 'Approved prototype', icon: PenTool },
+  { title: 'Development', copy: 'Build the agreed frontend, backend and integrations.', output: 'Staging product', icon: FileCode2 },
+  { title: 'Testing & QA', copy: 'Check function, devices, accessibility and agreed requirements.', output: 'Tested release', icon: ListChecks },
+  { title: 'Launch & handover', copy: 'Coordinate deployment, documentation and final access.', output: 'Handover package', icon: PackageCheck },
 ];
 
 const conceptCards = [
@@ -46,12 +46,12 @@ const technologyStack = [
   { name: 'TypeScript', image: '/images/technology/typescript.svg' },
   { name: 'Node.js', image: '/images/technology/nodejs.svg' },
   { name: 'Vite', image: '/images/technology/vite.svg' },
-  { name: 'Vercel', image: '/images/technology/vercel.svg' },
+  { name: 'Vercel', image: '/images/technology/vercel.svg', lightOnDark: true },
   { name: 'Supabase', image: '/images/technology/supabase.svg' },
   { name: 'OpenAPI', image: '/images/technology/openapi.svg' },
   { name: 'Git', image: '/images/technology/git.svg' },
   { name: 'Docker', image: '/images/technology/docker.svg' },
-  { name: 'WordPress', image: '/images/technology/wordpress.svg' },
+  { name: 'WordPress', image: '/images/technology/wordpress.svg', lightOnDark: true },
 ];
 
 const quality: IconItem[] = [
@@ -125,16 +125,20 @@ export default function WebDevelopmentPage({ setActivePage, posts, loading }: Pr
         </div>
       </section>
 
-      <section className="section-space bg-[#f7f9fb]" aria-labelledby="web-process-title"><div className="site-container"><div className="mx-auto max-w-3xl text-center"><p className="eyebrow">Our process</p><h2 id="web-process-title" className="text-[clamp(2.25rem,4vw,3.6rem)] leading-[1.06]">A clear development process.</h2><p className="mt-5 text-lg leading-8">Defined stages make reviews, responsibilities and outputs easier to understand.</p></div><ol className="mt-14 grid gap-8 md:grid-cols-5 md:gap-4">{process.map(({ title, copy, output, icon: Icon }, index) => <li key={title} className="relative border-l border-[#a8c8e8] pb-3 pl-8 md:border-l-0 md:border-t md:pb-0 md:pl-0 md:pt-8"><span className="absolute -left-5 top-0 flex size-10 items-center justify-center rounded-xl border border-[#bcd5ee] bg-white text-electric shadow-sm md:-top-5 md:left-0"><Icon size={19} strokeWidth={1.8} /></span><span className="text-[10px] font-semibold uppercase tracking-[.14em] text-electric">0{index + 1}</span><h3 className="mt-2 text-lg leading-6">{title}</h3><p className="mt-3 text-sm leading-6">{copy}</p><p className="mt-4 text-xs font-semibold text-[#31536f]">Output: {output}</p></li>)}</ol></div></section>
+      <section className="section-space bg-[#f7f9fb]" aria-labelledby="web-process-title"><div className="site-container"><div className="mx-auto max-w-3xl text-center"><p className="eyebrow">Our process</p><h2 id="web-process-title" className="text-[clamp(2.25rem,4vw,3.6rem)] leading-[1.06]">A clear development process.</h2><p className="mt-5 text-lg leading-8">Defined stages make reviews, responsibilities and outputs easier to understand.</p></div><ol className="mt-14 grid gap-8 md:grid-cols-5 md:gap-4">{process.map(({ title, copy, output, icon: Icon }, index) => <li key={title} className="relative border-l border-[#a8c8e8] pb-3 pl-8 md:border-l-0 md:border-t md:pb-0 md:pl-0 md:pt-8"><span className="absolute -left-5 top-0 flex size-10 items-center justify-center rounded-xl border border-[#bcd5ee] bg-white text-electric shadow-sm md:-top-5 md:left-0"><Icon size={19} strokeWidth={1.8} aria-hidden="true" /></span><span className="text-[10px] font-semibold uppercase tracking-[.14em] text-electric">0{index + 1}</span><h3 className="mt-2 text-lg leading-6">{title}</h3><p className="mt-3 text-sm leading-6">{copy}</p><p className="mt-4 text-xs font-semibold text-[#31536f]">Output: {output}</p></li>)}</ol></div></section>
 
       <section id="web-development-example" className="section-space bg-white" aria-labelledby="web-work-title"><div className="site-container"><div className="grid gap-6 lg:grid-cols-[.72fr_1.28fr] lg:items-end"><div><p className="eyebrow">Our work</p><h2 id="web-work-title" className="text-[clamp(2.25rem,4vw,3.5rem)] leading-[1.06]">Concepts that make the thinking visible.</h2></div><p className="max-w-2xl text-base leading-7 lg:justify-self-end">ITGS is a new company. These self-initiated concepts demonstrate interface and product thinking; they are not client work and contain illustrative data.</p></div><div className="mt-11 grid gap-5 lg:grid-cols-3">{conceptCards.map(({ title, type, copy, accent }) => <article key={title} className="overflow-hidden rounded-2xl border border-border bg-white shadow-[0_16px_45px_rgba(6,19,31,.07)]"><div className={`relative h-48 bg-gradient-to-br ${accent} p-5`}><div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px)', backgroundSize: '32px 32px' }} /><div className="relative mt-4 rounded-xl border border-white/30 bg-white/95 p-4 shadow-xl"><div className="flex items-center justify-between"><span className="h-2 w-20 rounded bg-[#dbe7f2]" /><span className="size-6 rounded-full bg-[#eaf3ff]" /></div><div className="mt-5 grid grid-cols-[.72fr_1.28fr] gap-3"><div className="h-20 rounded-lg bg-[#eef4f8]" /><div className="grid gap-2"><span className="h-5 rounded bg-[#dce8f4]" /><span className="h-5 rounded bg-[#eaf1f7]" /><span className="h-5 rounded bg-[#eaf1f7]" /></div></div></div></div><div className="p-6"><p className="text-[10px] font-semibold uppercase tracking-[.14em] text-electric">{type}</p><h3 className="mt-3 text-xl">{title}</h3><p className="mt-3 text-sm leading-6">{copy}</p><p className="mt-5 text-xs font-semibold text-steel">Self-initiated concept · Not client work</p></div></article>)}</div></div></section>
 
       <section className="section-space border-y border-border bg-[#f7f9fb]" aria-labelledby="web-tech-title">
-        <div className="site-container grid gap-12 lg:grid-cols-[.78fr_1.22fr] lg:items-center lg:gap-20">
-          <div><p className="eyebrow">Technology & platform expertise</p><h2 id="web-tech-title" className="text-[clamp(2.25rem,4vw,3.5rem)] leading-[1.06]">Modern technology for modern products.</h2><p className="mt-5 max-w-md text-base leading-7">The stack follows the requirements, ownership model and systems involved. These are technologies already used in the ITGS delivery environment.</p></div>
-          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5" aria-label="ITGS web development technology stack">
-            {technologyStack.map(({ name, image }) => <li key={name} className="group flex min-h-28 flex-col items-center justify-center gap-3 rounded-xl border border-border bg-white p-4 text-center shadow-[0_10px_28px_rgba(6,19,31,.05)] transition duration-200 hover:-translate-y-1 hover:border-[#a9cbee] hover:shadow-[0_16px_36px_rgba(6,19,31,.10)]"><img src={image} alt={`${name} logo`} width="42" height="42" loading="lazy" className="h-10 w-12 object-contain transition-transform duration-200 group-hover:scale-105" /><span className="text-xs font-semibold text-ink">{name}</span></li>)}
-          </ul>
+        <div className="site-container">
+          <div className="grid gap-5 lg:grid-cols-[.8fr_1.2fr] lg:items-end"><div><p className="eyebrow">Technology & platform expertise</p><h2 id="web-tech-title" className="max-w-xl text-[clamp(2.25rem,4vw,3.5rem)] leading-[1.06]">Modern technology for modern products.</h2></div><p className="max-w-2xl text-base leading-7 lg:justify-self-end">The stack follows the requirements, ownership model and systems involved. These technologies are already used in the ITGS delivery environment.</p></div>
+          <div className="tech-logo-marquee mt-11 rounded-2xl border border-white/10 bg-[#03090f] py-8 shadow-[0_24px_70px_rgba(6,19,31,.22)] sm:py-10" role="region" aria-label="ITGS web development technology stack">
+            <div className="tech-logo-track">
+              {[0, 1].map((copy) => <ul key={copy} className="tech-logo-group" aria-hidden={copy === 1 ? 'true' : undefined}>
+                {technologyStack.map(({ name, image, lightOnDark }) => <li key={`${copy}-${name}`} className="tech-logo-item"><img src={image} alt={copy === 0 ? `${name} logo` : ''} width="56" height="56" loading="lazy" className={`h-12 w-16 object-contain sm:h-14 sm:w-20 ${lightOnDark ? 'brightness-0 invert' : ''}`} /><span className="mt-3 text-xs font-semibold text-white/80 sm:text-sm">{name}</span></li>)}
+              </ul>)}
+            </div>
+          </div>
         </div>
       </section>
 
