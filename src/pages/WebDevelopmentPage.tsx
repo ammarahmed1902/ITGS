@@ -1,8 +1,7 @@
 import {
-  Accessibility, ArrowRight, ArrowUpRight, Atom, Blocks, Boxes, Braces, Check, ChevronDown,
-  CircleGauge, Cloud, Code2, Container, Database, FileCheck2, FileJson2, Gauge,
-  GitBranch, LayoutTemplate, Link2, MonitorSmartphone, PanelsTopLeft, Rocket, Search,
-  ServerCog, ShieldCheck, TestTube2, Triangle,
+  Accessibility, ArrowRight, ArrowUpRight, Blocks, Check, ChevronDown,
+  CircleGauge, Code2, FileCheck2, Gauge, LayoutTemplate, Link2,
+  MonitorSmartphone, PanelsTopLeft, Rocket, Search, ShieldCheck, TestTube2,
   type LucideIcon,
 } from 'lucide-react';
 import WebsitePreview from '../components/web-development/WebsitePreview';
@@ -43,16 +42,16 @@ const conceptCards = [
 ];
 
 const technologyStack = [
-  { name: 'React', icon: Atom },
-  { name: 'TypeScript', icon: FileJson2 },
-  { name: 'Node.js', icon: ServerCog },
-  { name: 'Vite', icon: Triangle },
-  { name: 'Vercel', icon: Cloud },
-  { name: 'Supabase', icon: Database },
-  { name: 'APIs', icon: Braces },
-  { name: 'Git', icon: GitBranch },
-  { name: 'Containers', icon: Container },
-  { name: 'CMS', icon: Boxes },
+  { name: 'React', image: '/images/technology/react.svg' },
+  { name: 'TypeScript', image: '/images/technology/typescript.svg' },
+  { name: 'Node.js', image: '/images/technology/nodejs.svg' },
+  { name: 'Vite', image: '/images/technology/vite.svg' },
+  { name: 'Vercel', image: '/images/technology/vercel.svg' },
+  { name: 'Supabase', image: '/images/technology/supabase.svg' },
+  { name: 'OpenAPI', image: '/images/technology/openapi.svg' },
+  { name: 'Git', image: '/images/technology/git.svg' },
+  { name: 'Docker', image: '/images/technology/docker.svg' },
+  { name: 'WordPress', image: '/images/technology/wordpress.svg' },
 ];
 
 const quality: IconItem[] = [
@@ -100,7 +99,7 @@ export default function WebDevelopmentPage({ setActivePage, posts, loading }: Pr
         <div className="site-container">
           <p className="mb-5 text-center text-[10px] font-semibold uppercase tracking-[.18em] text-steel">Technology foundations used in delivery</p>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-5">
-            {technologyStack.slice(0, 5).map(({ name, icon: Icon }) => <div key={name} className="flex min-h-12 items-center justify-center gap-2 border-l border-border px-3 first:border-l-0"><Icon size={19} strokeWidth={1.7} className="text-electric" aria-hidden="true" /><span className="text-sm font-semibold text-ink">{name}</span></div>)}
+            {technologyStack.slice(0, 5).map(({ name, image }) => <div key={name} className="flex min-h-12 items-center justify-center gap-2 border-l border-border px-3 first:border-l-0"><img src={image} alt="" width="22" height="22" className="size-[22px] object-contain" /><span className="text-sm font-semibold text-ink">{name}</span></div>)}
           </div>
         </div>
       </section>
@@ -134,7 +133,7 @@ export default function WebDevelopmentPage({ setActivePage, posts, loading }: Pr
         <div className="site-container grid gap-12 lg:grid-cols-[.78fr_1.22fr] lg:items-center lg:gap-20">
           <div><p className="eyebrow">Technology & platform expertise</p><h2 id="web-tech-title" className="text-[clamp(2.25rem,4vw,3.5rem)] leading-[1.06]">Modern technology for modern products.</h2><p className="mt-5 max-w-md text-base leading-7">The stack follows the requirements, ownership model and systems involved. These are technologies already used in the ITGS delivery environment.</p></div>
           <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5" aria-label="ITGS web development technology stack">
-            {technologyStack.map(({ name, icon: Icon }) => <li key={name} className="flex min-h-24 flex-col items-center justify-center gap-3 rounded-xl border border-border bg-white p-4 text-center shadow-[0_10px_28px_rgba(6,19,31,.05)] transition duration-200 hover:-translate-y-1 hover:border-[#a9cbee]"><Icon size={27} strokeWidth={1.6} className="text-electric" aria-hidden="true" /><span className="text-xs font-semibold text-ink">{name}</span></li>)}
+            {technologyStack.map(({ name, image }) => <li key={name} className="group flex min-h-28 flex-col items-center justify-center gap-3 rounded-xl border border-border bg-white p-4 text-center shadow-[0_10px_28px_rgba(6,19,31,.05)] transition duration-200 hover:-translate-y-1 hover:border-[#a9cbee] hover:shadow-[0_16px_36px_rgba(6,19,31,.10)]"><img src={image} alt={`${name} logo`} width="42" height="42" loading="lazy" className="h-10 w-12 object-contain transition-transform duration-200 group-hover:scale-105" /><span className="text-xs font-semibold text-ink">{name}</span></li>)}
           </ul>
         </div>
       </section>
